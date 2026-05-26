@@ -38,9 +38,8 @@ export const NAV = [
   { label: 'Inicio', href: '/' },
   { label: 'Servicios', href: '/servicios' },
   { label: 'Plataforma', href: '/plataforma' },
-  { label: 'Instituciones', href: '/instituciones' },
+  { label: 'Consultoría', href: '/instituciones' },
   { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Contacto', href: '/contacto' },
 ];
 
 export const SERVICES = [

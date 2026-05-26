@@ -1,6 +1,6 @@
 ---
 import Logo from '../ui/Logo.astro';
-import { NAV, waLink, WHATSAPP_MESSAGES } from '../../lib/site';
+import { NAV, waLink } from '../../lib/site';
 
 const path = Astro.url.pathname;
 ---
@@ -21,7 +21,7 @@ const path = Astro.url.pathname;
     </nav>
 
     <div class="gsm-header__cta">
-      <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.default)} target="_blank" rel="noopener">
+      <a class="btn btn-primary" data-magnetic href="/contacto">
         <span>Hablemos</span>
       </a>
       <button class="gsm-burger" type="button" aria-label="Abrir menú" data-menu-open>
