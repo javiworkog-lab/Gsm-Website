@@ -9,11 +9,11 @@ const navItems = NAV;
 
 <footer class="gsm-footer">
   <div class="gsm-footer__container gsm-footer__brand">
-    <Logo variant="white" withTagline={false} size={112} />
+    <Logo variant="white" withTagline={false} size={128} />
   </div>
 
   <div class="gsm-footer__container gsm-footer__grid">
-    <div class="gsm-footer__col">
+    <div class="gsm-footer__col gsm-footer__col--about">
       <p class="eyebrow">Sobre nosotros</p>
       <p class="gsm-footer__lead">
         Agencia chilena de gestión deportiva integral. Convertimos talento en carrera, y carrera en legado.
@@ -21,31 +21,33 @@ const navItems = NAV;
       <a class="btn btn-primary" data-magnetic href={waLink()} target="_blank" rel="noopener">Conversemos</a>
     </div>
 
-    <div class="gsm-footer__col">
-      <p class="eyebrow">Servicios</p>
-      <ul>
-        {SERVICES.map((s) => (
-          <li><a href={`/servicios/${s.slug}`}><span class="num">{s.code}</span>{s.title}</a></li>
-        ))}
-      </ul>
-    </div>
+    <div class="gsm-footer__cols-right">
+      <div class="gsm-footer__col">
+        <p class="eyebrow">Servicios</p>
+        <ul>
+          {SERVICES.map((s) => (
+            <li><a href={`/servicios/${s.slug}`}><span class="num">{s.code}</span>{s.title}</a></li>
+          ))}
+        </ul>
+      </div>
 
-    <div class="gsm-footer__col">
-      <p class="eyebrow">Navegar</p>
-      <ul>
-        {navItems.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
-      </ul>
-    </div>
+      <div class="gsm-footer__col">
+        <p class="eyebrow">Navegar</p>
+        <ul>
+          {navItems.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        </ul>
+      </div>
 
-    <div class="gsm-footer__col">
-      <p class="eyebrow">Contacto</p>
-      <address>
-        <a href="mailto:contacto@gsm.cl">contacto@gsm.cl</a><br />
-        <a href={waLink()} target="_blank" rel="noopener">WhatsApp: {SITE.contact.phone}</a><br />
-        <span class="opacity-60">{SITE.contact.hours}</span>
-      </address>
-      <div class="gsm-footer__social">
-        <a href={SITE.social.instagram} target="_blank" rel="noopener" aria-label="Instagram GSM">Instagram ↗</a>
+      <div class="gsm-footer__col">
+        <p class="eyebrow">Contacto</p>
+        <address>
+          <a href="mailto:contacto@gsm.cl">contacto@gsm.cl</a><br />
+          <a href={waLink()} target="_blank" rel="noopener">WhatsApp: {SITE.contact.phone}</a><br />
+          <span class="opacity-60">{SITE.contact.hours}</span>
+        </address>
+        <div class="gsm-footer__social">
+          <a href={SITE.social.instagram} target="_blank" rel="noopener" aria-label="Instagram GSM">Instagram ↗</a>
+        </div>
       </div>
     </div>
   </div>
@@ -58,72 +60,90 @@ const navItems = NAV;
 
 <style is:global>
   .gsm-footer {
-    background: var(--color-ink);
+    background: var(--color-court);
     color: var(--color-bone);
-    border-top: 1px solid var(--color-line);
+    border-top: 1px solid rgba(242, 239, 232, 0.08);
     overflow: hidden;
     position: relative;
+  }
+  .gsm-footer .eyebrow { color: var(--color-orange); }
+  .gsm-footer__brand,
+  .gsm-footer__grid {
+    border-bottom-color: rgba(242, 239, 232, 0.10);
   }
   /* Margen lateral responsive: cómodo en mobile (1.5rem),
      amplio en tablet/desktop (hasta 6rem), centrado por max-width. */
   .gsm-footer__container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1440px;
     margin-inline: auto;
-    padding-inline: clamp(1.5rem, 6vw, 6rem);
+    padding-inline: clamp(1.5rem, 4vw, 4rem);
   }
   .gsm-footer__brand {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-block: clamp(3rem, 6vw, 4.5rem) 1.6rem;
+    padding-block: clamp(1.8rem, 3.5vw, 2.6rem) clamp(1rem, 2vw, 1.4rem);
     border-bottom: 1px solid var(--color-line);
   }
   .gsm-footer__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(1.8rem, 4vw, 3rem);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.4fr);
+    gap: clamp(2rem, 6vw, 5rem);
     padding-block: clamp(2.5rem, 5vw, 3.5rem) clamp(2rem, 4vw, 3rem);
     border-bottom: 1px solid var(--color-line);
-    text-align: center;
+    text-align: left;
+    align-items: start;
+  }
+  .gsm-footer__col--about { max-width: 28rem; }
+  .gsm-footer__cols-right {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    justify-items: start;
   }
   @media (max-width: 900px) {
-    .gsm-footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .gsm-footer__grid {
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 5vw, 3rem);
+    }
+    .gsm-footer__col--about { max-width: 100%; }
+    .gsm-footer__cols-right { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 540px) {
-    .gsm-footer__grid { grid-template-columns: 1fr; gap: 2.2rem; }
+    .gsm-footer__cols-right { grid-template-columns: 1fr; gap: 2.2rem; }
   }
   .gsm-footer__col {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.4rem;
   }
-  .gsm-footer__col .eyebrow { text-align: center; }
+  .gsm-footer__col .eyebrow { text-align: left; }
   .gsm-footer__col ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.55rem;
   }
   .gsm-footer__col li a {
     display: inline-flex;
     gap: 0.6rem;
     align-items: baseline;
-    justify-content: center;
+    justify-content: flex-start;
     transition: color 0.25s;
   }
   .gsm-footer__col li a:hover { color: var(--color-orange); }
   .gsm-footer__col li .num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-orange); }
-  .gsm-footer__lead { max-width: 32ch; margin: 0.6rem auto 1.4rem; opacity: 0.8; text-align: center; }
+  .gsm-footer__lead { max-width: 32ch; margin: 0.6rem 0 1.4rem; opacity: 0.8; text-align: left; }
   .gsm-footer__social {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 1rem;
     font-family: var(--font-mono);
     font-size: 0.78rem;
@@ -133,23 +153,25 @@ const navItems = NAV;
   .gsm-footer__social a:hover { color: var(--color-orange); }
   address {
     font-style: normal;
-    text-align: center;
+    text-align: left;
     line-height: 1.7;
   }
   address a:hover { color: var(--color-orange); }
   .gsm-footer__bottom {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 0.6rem 1.5rem;
     padding-block: 1.6rem 2.2rem;
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     opacity: 0.55;
-    text-align: center;
   }
   .gsm-footer__bottom p { margin: 0; }
+  @media (max-width: 600px) {
+    .gsm-footer__bottom { flex-direction: column; align-items: flex-start; }
+  }
 </style>

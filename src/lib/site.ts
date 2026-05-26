@@ -35,6 +35,7 @@ export const SITE = {
 };
 
 export const NAV = [
+  { label: 'Inicio', href: '/' },
   { label: 'Servicios', href: '/servicios' },
   { label: 'Instituciones', href: '/instituciones' },
   { label: 'Atletas', href: '/atletas' },
