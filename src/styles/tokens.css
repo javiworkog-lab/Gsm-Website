@@ -21,6 +21,12 @@
   --font-serif: 'Fraunces', 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
 
+  /* Title sizes — unified across the whole site */
+  --title-h1: clamp(1.7rem, 3.2vw, 2.8rem);   /* Page hero titles (Home + subpages) */
+  --title-h2: clamp(1.5rem, 2.6vw, 2.4rem);   /* Section titles (inside any page) */
+  --title-h3: clamp(1.05rem, 1.4vw, 1.35rem); /* Card / subsection titles */
+  --title-lead: clamp(0.95rem, 1vw, 1.05rem); /* Lead paragraphs / subtitles */
+
   /* Type-scale (fluid clamp) */
   --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
   --text-sm: clamp(0.82rem, 0.78rem + 0.18vw, 0.92rem);

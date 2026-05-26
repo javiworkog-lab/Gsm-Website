@@ -126,14 +126,14 @@ const manifestBlocks = [
 
   <style>
     .page-hero { padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 1rem); }
-    .page-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
+    .page-hero__title { font-size: var(--title-h1); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
     .page-hero__lead { max-width: 62ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
 
     .manifest-section { padding-block: var(--spacing-section); color: var(--color-ink); overflow: hidden; }
     .manifest-wrap { margin-top: clamp(2.5rem, 5vw, 4rem); }
     .manifest-head { max-width: 52rem; margin: 0 auto clamp(2.5rem, 5vw, 4rem); display: grid; gap: 0.9rem; text-align: center; justify-items: center; }
     .manifest-head .eyebrow { color: var(--color-orange); }
-    .manifest-title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0; max-width: 22ch; }
+    .manifest-title { font-size: var(--title-h2); line-height: 1.15; letter-spacing: -0.02em; margin: 0; max-width: 22ch; }
     .manifest-lead { max-width: 56ch; color: rgba(10,10,10,0.72); font-size: 0.95rem; line-height: 1.6; margin: 0; }
 
     .manifest-grid {
@@ -154,12 +154,12 @@ const manifestBlocks = [
     .manifest-card__top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
     .manifest-card__num { font-size: 1.8rem; line-height: 0.95; letter-spacing: -0.02em; color: var(--color-orange); }
     .manifest-card__eye { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; }
-    .manifest-card__title { font-size: clamp(1.1rem, 1.5vw, 1.35rem); line-height: 1.2; letter-spacing: -0.015em; margin: 0.1rem 0 0; }
+    .manifest-card__title { font-size: var(--title-h3); line-height: 1.2; letter-spacing: -0.015em; margin: 0.1rem 0 0; }
     .manifest-card__body { font-size: 0.92rem; line-height: 1.6; color: rgba(10,10,10,0.78); margin: 0; }
 
     .values { padding-block: var(--spacing-section); }
     .values__head { display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 52rem; }
-    .values__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
+    .values__title { font-size: var(--title-h2); letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
     .values__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
     @media (max-width: 1000px) { .values__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 540px) { .values__grid { grid-template-columns: 1fr; } }

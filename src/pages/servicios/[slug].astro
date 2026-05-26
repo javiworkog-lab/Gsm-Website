@@ -113,7 +113,7 @@ const faqLd = {
     .srv-hero { padding-block: calc(var(--spacing-section) + 3.5rem) var(--spacing-section); }
     .srv-hero__inner { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: end; }
     @media (max-width: 900px) { .srv-hero__inner { grid-template-columns: 1fr; } }
-    .srv-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.6rem 0 0.6rem; }
+    .srv-hero__title { font-size: var(--title-h1); line-height: 1.15; letter-spacing: -0.02em; margin: 0.6rem 0 0.6rem; }
     .srv-hero__subtitle { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; margin: 0 0 1.2rem; }
     .srv-hero__summary { max-width: 56ch; color: rgba(242,239,232,0.82); font-size: 0.95rem; line-height: 1.6; margin: 0 0 1.6rem; }
     .srv-hero__cta { display: flex; gap: 0.7rem; flex-wrap: wrap; }
@@ -129,7 +129,7 @@ const faqLd = {
 
     .srv-process { padding-block: var(--spacing-section); }
     .srv-process__head { display: grid; gap: 0.7rem; margin-bottom: 2.5rem; max-width: 50rem; }
-    .srv-process__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+    .srv-process__title { font-size: var(--title-h2); letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
     .srv-process__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
     @media (max-width: 1000px) { .srv-process__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 540px) { .srv-process__grid { grid-template-columns: 1fr; } }
@@ -139,7 +139,7 @@ const faqLd = {
     .proc-card p { color: rgba(242,239,232,0.78); margin: 0; font-size: 0.85rem; line-height: 1.6; }
 
     .srv-faq { padding-block: var(--spacing-section); color: var(--color-ink); }
-    .srv-faq__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0.6rem 0 2rem; }
+    .srv-faq__title { font-size: var(--title-h2); letter-spacing: -0.02em; line-height: 1.15; margin: 0.6rem 0 2rem; }
     .faq-item { border-top: 1px solid rgba(10,10,10,0.1); padding: 1.2rem 0; }
     .faq-item:last-of-type { border-bottom: 1px solid rgba(10,10,10,0.1); }
     .faq-item summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.3vw, 1.15rem); letter-spacing: -0.015em; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }

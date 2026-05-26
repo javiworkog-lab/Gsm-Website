@@ -52,7 +52,7 @@ const athletes = [
     display: grid;
     gap: 0.9rem;
   }
-  .athletes__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .athletes__title { font-size: var(--title-h2); line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
   .athletes__lead { max-width: 52ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.55; }
 
   .athletes__grid {
@@ -109,7 +109,7 @@ const athletes = [
     padding: 1rem 1.1rem;
   }
   .athlete-card__meta .font-mono { font-size: 0.7rem; opacity: 0.8; padding: 0.2rem 0.4rem; border: 1px solid var(--color-line); }
-  .athlete-card__name { font-size: clamp(0.95rem, 1.1vw, 1.2rem); margin: 0; line-height: 1.1; letter-spacing: -0.015em; }
+  .athlete-card__name { font-size: var(--title-h3); margin: 0; line-height: 1.1; letter-spacing: -0.015em; }
   .athlete-card__sport { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin: 0.3rem 0 0; }
   .athletes__cta { display: flex; justify-content: center; margin-top: 2rem; }
 </style>
