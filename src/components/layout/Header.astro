@@ -111,6 +111,14 @@ const path = Astro.url.pathname;
     .gsm-header__cta .btn { display: none; }
     .gsm-burger { display: inline-flex; }
   }
+  /* Mobile: shrink the logo and pull it to the very left edge */
+  @media (max-width: 700px) {
+    .gsm-header__inner { padding-inline: 1rem; }
+    .gsm-header .gsm-logo img { height: 56px !important; }
+  }
+  @media (max-width: 420px) {
+    .gsm-header .gsm-logo img { height: 48px !important; }
+  }
 
   /* Menu overlay */
   .gsm-menu {
