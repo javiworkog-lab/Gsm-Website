@@ -82,10 +82,6 @@ const faqLd = {
               <textarea name="message" rows="6" required></textarea>
             </label>
           </div>
-          <label class="form__check">
-            <input type="checkbox" name="terms" required />
-            <span>Autorizo a GSM a contactarme y tratar mis datos conforme a la ley chilena 19.628.</span>
-          </label>
           <button class="btn btn-primary" data-magnetic type="submit">Enviar mensaje</button>
           <p class="form__msg" data-form-msg aria-live="polite"></p>
         </form>
@@ -93,20 +89,25 @@ const faqLd = {
 
       <aside class="contact__aside" style="grid-column: span 5;">
         <div class="contact__card">
-          <p class="eyebrow" style="color:var(--color-orange)">Atención directa</p>
-          <a class="contact__big" href={waLink(WHATSAPP_MESSAGES.contacto)} target="_blank" rel="noopener">WhatsApp →</a>
-          <a class="contact__big" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
-          <hr />
-          <p class="contact__addr">
-            <strong>{SITE.address.streetAddress}</strong><br />
-            {SITE.address.addressLocality}, Santiago, Chile<br />
-            <span class="opacity-60">{SITE.contact.hours}</span>
-          </p>
-          <hr />
-          <div class="contact__social">
-            <a href={SITE.social.instagram} target="_blank" rel="noopener">Instagram ↗</a>
-            <a href={SITE.social.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href={SITE.social.youtube} target="_blank" rel="noopener">YouTube ↗</a>
+          <span class="contact__dot" aria-hidden="true"></span>
+          <p class="contact__eye font-mono">Atención directa</p>
+
+          <div class="contact__channels">
+            <a class="contact__chan" href={waLink(WHATSAPP_MESSAGES.contacto)} target="_blank" rel="noopener">
+              <span class="contact__chan-label font-mono">WhatsApp</span>
+              <span class="contact__chan-arrow">→</span>
+            </a>
+            <a class="contact__chan" href={`mailto:${SITE.contact.email}`}>
+              <span class="contact__chan-label font-mono">Email</span>
+              <span class="contact__chan-arrow">→</span>
+            </a>
+          </div>
+
+          <p class="contact__email-text">{SITE.contact.email}</p>
+
+          <div class="contact__hours">
+            <p class="contact__hours-eye font-mono">Horario</p>
+            <p class="contact__hours-text">{SITE.contact.hours}</p>
           </div>
         </div>
       </aside>
@@ -148,13 +149,96 @@ const faqLd = {
     .form__msg.is-ok { color: var(--color-court); }
     .form__msg.is-err { color: #c0392b; }
 
-    .contact__card { padding: 1.8rem 1.5rem; background: var(--color-ink); color: var(--color-bone); display: grid; gap: 0.8rem; position: sticky; top: 6rem; }
-    .contact__big { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s; }
-    .contact__big:hover { color: var(--color-orange); }
-    .contact__card hr { border: 0; border-top: 1px solid var(--color-line); margin: 0.4rem 0; }
-    .contact__addr { font-size: 0.95rem; line-height: 1.5; margin: 0; }
-    .contact__social { display: flex; gap: 1rem; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; }
-    .contact__social a:hover { color: var(--color-orange); }
+    .contact__card {
+      padding: clamp(1.8rem, 2.4vw, 2.4rem);
+      background: var(--color-court);
+      color: var(--color-bone);
+      position: sticky;
+      top: 6rem;
+      display: grid;
+      gap: 1.4rem;
+      align-content: start;
+      position: relative;
+    }
+    .contact__dot {
+      position: absolute;
+      top: 1.6rem;
+      right: 1.6rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-orange);
+      box-shadow: 0 0 0 0 rgba(198,96,51,0.5);
+      animation: pulse-dot 2.2s ease-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%   { box-shadow: 0 0 0 0 rgba(198,96,51,0.55); }
+      70%  { box-shadow: 0 0 0 14px rgba(198,96,51,0); }
+      100% { box-shadow: 0 0 0 0 rgba(198,96,51,0); }
+    }
+    .contact__eye {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin: 0;
+    }
+
+    .contact__channels {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid rgba(242,239,232,0.18);
+      border-bottom: 1px solid rgba(242,239,232,0.18);
+    }
+    .contact__chan {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(242,239,232,0.10);
+      color: var(--color-bone);
+      transition: color 0.3s, padding-left 0.4s var(--ease-out-expo);
+      text-decoration: none;
+    }
+    .contact__chan:last-child { border-bottom: 0; }
+    .contact__chan:hover { color: var(--color-orange); padding-left: 0.4rem; }
+    .contact__chan-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .contact__chan-arrow {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .contact__chan:hover .contact__chan-arrow { transform: translateX(4px); }
+
+    .contact__email-text {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      opacity: 0.7;
+      margin: -0.6rem 0 0;
+    }
+
+    .contact__hours { display: grid; gap: 0.25rem; }
+    .contact__hours-eye {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      margin: 0;
+    }
+    .contact__hours-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0;
+      opacity: 0.92;
+    }
+
     @media (max-width: 800px) { .contact__card { position: static; } }
   </style>
 
