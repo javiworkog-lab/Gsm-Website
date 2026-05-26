@@ -1,12 +1,28 @@
 ---
 import Base from '../layouts/Base.astro';
-import Marquee from '../components/ui/Marquee.astro';
 import Founders from '../components/sections/Founders.astro';
-import { SITE, STATS } from '../lib/site';
+import { SITE, STATS, SERVICES, waLink, WHATSAPP_MESSAGES } from '../lib/site';
 
 const breadcrumbs = [
   { name: 'Inicio', url: SITE.url },
   { name: 'Nosotros', url: `${SITE.url}/nosotros` },
+];
+
+// Las 5 capas integradas que GSM lee como una sola
+const layers = [
+  { code: '01', name: 'Deporte', body: 'Estructura, calendario, rendimiento y resultados. El núcleo de toda decisión.' },
+  { code: '02', name: 'Salud', body: 'Prevención, progresión y bienestar. Sin cuerpo sano no hay carrera ni proyecto.' },
+  { code: '03', name: 'Data', body: 'Evaluación y seguimiento con partners tecnológicos. Decisiones medidas, no intuidas.' },
+  { code: '04', name: 'Financiamiento', body: 'Sponsors, fondos, donaciones y proyectos financiables. Recursos para que el plan ocurra.' },
+  { code: '05', name: 'Gestión', body: 'Procesos, contratos, alianzas y operación. La capa que mantiene todo funcionando.' },
+];
+
+// Los 4 pilares de servicio (mismos que el home pero contados desde la marca)
+const pillars = [
+  { code: 'P1', name: 'Educacional', target: 'Colegios · Universidades', desc: 'Deporte escolar con estructura, hábitos saludables y detección de talento.' },
+  { code: 'P2', name: 'Sport Performance', target: 'Clubes · Federaciones · Comité Olímpico', desc: 'Capa estratégica que ordena el ecosistema deportivo institucional.' },
+  { code: 'P3', name: 'Athlete Management', target: 'Deportistas · Familias', desc: 'Carrera deportiva sostenible, visible y financiable para el atleta.' },
+  { code: 'P4', name: 'Funding & Projects', target: 'Proyectos · Fundaciones', desc: 'Ideas deportivas convertidas en proyectos financiables, medibles y atractivos para marcas.' },
 ];
 
 const values = [
@@ -15,87 +31,117 @@ const values = [
   { num: '03', title: 'Resultados antes que ruido', body: 'Lo que se mide, mejora. Lo que se publica sin medir, es marketing. GSM no hace marketing, hace gestión.' },
   { num: '04', title: 'Personas antes que números', body: 'Detrás de cada KPI hay un atleta, un dirigente, una familia, una institución. Esa es la razón de existir.' },
 ];
-
-const manifestBlocks = [
-  {
-    num: '01',
-    eyebrow: 'Origen',
-    title: 'El por qué de GSM',
-    body: 'Llevamos 12 años trabajando con clubes, federaciones, colegios, atletas y proyectos en Chile. Vimos siempre la misma película: mucho talento, poca metodología; mucha pasión, poca infraestructura; mucho voluntarismo, poca gestión. Decidimos cambiar eso y fundamos GSM.',
-  },
-  {
-    num: '02',
-    eyebrow: 'Servicios',
-    title: 'Lo que hacemos',
-    body: 'GSM trabaja en cuatro frentes: Sport Performance (instituciones), Athlete Management (deportistas), Educación (colegios y universidades) y Funding & Projects (proyectos deportivos). Cada servicio tiene metodología propia, métricas claras y un equipo dedicado.',
-  },
-  {
-    num: '03',
-    eyebrow: 'Método',
-    title: 'Cómo trabajamos',
-    body: 'Nuestro método se llama Diagnóstico · Estrategia · Implementación · Seguimiento · Resultados. No vendemos PPTs: nos comprometemos a operar. No prometemos lo imposible: trabajamos sobre lo posible para hacerlo realidad.',
-  },
-  {
-    num: '04',
-    eyebrow: 'Red',
-    title: 'Dónde estamos',
-    body: 'Sede central en Santiago, Chile. Operación nacional con presencia activa en regiones, de Arica a Punta Arenas. Conexión con federaciones, marcas y fondos relevantes para el deporte chileno.',
-  },
-];
 ---
 
 <Base
   title="Nosotros — Quiénes somos en GSM"
-  description="GSM (Game · Set...Match) es la agencia chilena de gestión deportiva integral fundada hace 12 años. Conoce nuestro equipo, valores y metodología."
+  description="GSM (Game · Set...Match) es la agencia chilena de gestión deportiva integral. Integramos deporte, salud, data, financiamiento y gestión en una sola capa estratégica."
   breadcrumbs={breadcrumbs}
 >
+  <!-- HERO -->
   <section class="page-hero bg-ink">
-    <div class="container-x">
+    <div class="container-x page-hero__inner">
       <p class="eyebrow">Nosotros · GSM</p>
       <h1 class="page-hero__title font-display-narrow" data-split>
-        Una agencia chilena <em class="font-serif-italic text-orange">para el deporte</em> que viene.
+        Donde el deporte deja de <em class="font-serif-italic text-orange">improvisar</em>.
       </h1>
       <p class="page-hero__lead">
-        GSM nace de una convicción simple: el deporte chileno tiene talento, pasión y pasta para competir con cualquiera. Lo que falta no es esfuerzo: es estructura, método y red. Eso es lo que GSM aporta.
+        GSM (Game · Set...Match) es la agencia chilena de gestión deportiva integral. Integramos <strong>deporte, salud, data, financiamiento y gestión</strong> en una sola capa estratégica para atletas, instituciones, colegios y proyectos.
       </p>
+    </div>
+    <div class="page-hero__macro" aria-hidden="true"><span>GSM</span></div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pullquote bg-bone">
+    <div class="container-narrow">
+      <blockquote class="pullquote__text font-serif-italic" data-split>
+        “El talento no se inventa. Se diagnostica, se acompaña, se mide y se sostiene en el tiempo.”
+      </blockquote>
+      <p class="pullquote__attr font-mono">— Equipo GSM</p>
     </div>
   </section>
 
-  <section class="manifest-section bg-bone">
-    <Marquee items={['12 años', '247+ atletas', '38 sponsors', 'Operación nacional', 'Una sola visión']} duration={50} />
-    <div class="container-x manifest-wrap">
-      <header class="manifest-head">
-        <span class="eyebrow">Manifiesto</span>
-        <h2 class="manifest-title font-display-narrow" data-split>
-          Una agencia, <em class="font-serif-italic text-orange">cuatro convicciones</em>.
+  <!-- ORIGEN / POR QUÉ -->
+  <section class="origin bg-bone">
+    <div class="container-x origin__inner">
+      <div class="origin__col">
+        <p class="eyebrow" data-reveal>Origen</p>
+        <h2 class="origin__title font-display-narrow" data-split>El <em class="font-serif-italic text-orange">por qué</em> de GSM.</h2>
+      </div>
+      <div class="origin__col">
+        <p class="origin__body" data-reveal>
+          Llevamos más de 12 años trabajando con clubes, federaciones, colegios, atletas y proyectos en Chile. Vimos siempre la misma película: mucho talento, poca metodología; mucha pasión, poca infraestructura; mucho voluntarismo, poca gestión.
+        </p>
+        <p class="origin__body" data-reveal style="--reveal-delay:120ms">
+          Fundamos GSM para cambiar eso. No para hacer marketing del deporte: para construir estructura, oportunidades y resultados medibles desde el deporte.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAS 5 CAPAS -->
+  <section class="layers bg-court">
+    <div class="container-x">
+      <header class="layers__head">
+        <p class="eyebrow" data-reveal>Visión integrada</p>
+        <h2 class="layers__title font-display-narrow" data-split>
+          Cinco capas que GSM lee como <em class="font-serif-italic text-orange">una sola lectura</em>.
         </h2>
-        <p class="manifest-lead">
-          GSM se construye sobre una idea simple y cuatro pilares concretos. Esto es lo que somos, lo que hacemos, cómo lo hacemos y desde dónde lo hacemos.
+        <p class="layers__lead" data-reveal style="--reveal-delay:120ms">
+          La mayoría de los proyectos deportivos miran solo una capa: el resultado deportivo, o el sponsor, o el médico. GSM lee las cinco al mismo tiempo y diseña sobre la intersección.
         </p>
       </header>
 
-      <div class="manifest-grid">
-        {manifestBlocks.map((b, i) => (
-          <article class="manifest-card" data-reveal style={`--reveal-delay:${i * 120}ms`}>
-            <div class="manifest-card__top">
-              <span class="manifest-card__num font-display-narrow">{b.num}</span>
-              <span class="manifest-card__eye font-mono">{b.eyebrow}</span>
-            </div>
-            <h3 class="manifest-card__title font-display-narrow">{b.title}</h3>
-            <p class="manifest-card__body">{b.body}</p>
+      <div class="layers__grid">
+        {layers.map((l, i) => (
+          <article class="layer" data-reveal style={`--reveal-delay:${i * 90}ms`}>
+            <p class="layer__code font-mono">{l.code}</p>
+            <h3 class="layer__name font-display-narrow">{l.name}</h3>
+            <p class="layer__body">{l.body}</p>
           </article>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- LOS 4 PILARES -->
+  <section class="pillars bg-bone">
+    <div class="container-x">
+      <header class="pillars__head">
+        <p class="eyebrow" data-reveal>Líneas de servicio</p>
+        <h2 class="pillars__title font-display-narrow" data-split>
+          Cuatro pilares, un mismo <em class="font-serif-italic text-orange">método</em>.
+        </h2>
+        <p class="pillars__lead" data-reveal style="--reveal-delay:120ms">
+          GSM se organiza en cuatro líneas que comparten metodología, lenguaje y ADN. Cada pilar atiende un cliente distinto, pero la lógica es la misma.
+        </p>
+      </header>
+
+      <div class="pillars__grid">
+        {pillars.map((p, i) => (
+          <a class="pillar" href={`/servicios/${SERVICES[i].slug}`} data-reveal style={`--reveal-delay:${i * 110}ms`}>
+            <p class="pillar__code font-mono">{p.code}</p>
+            <h3 class="pillar__name font-display-narrow">{p.name}</h3>
+            <p class="pillar__target font-mono">{p.target}</p>
+            <p class="pillar__desc">{p.desc}</p>
+            <span class="pillar__arrow">Conocer línea →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS (componente existente) -->
   <Founders />
 
+  <!-- VALUES -->
   <section class="values bg-ink">
     <div class="container-x">
       <header class="values__head">
         <p class="eyebrow">Valores</p>
         <h2 class="values__title font-display-narrow" data-split>Cuatro reglas <em class="font-serif-italic text-orange">no negociables</em>.</h2>
+        <p class="values__lead">Estos cuatro principios definen qué proyectos tomamos, cómo decidimos y por qué decimos que no cuando hay que decir que no.</p>
       </header>
       <div class="values__grid">
         {values.map((v, i) => (
@@ -109,6 +155,7 @@ const manifestBlocks = [
     </div>
   </section>
 
+  <!-- NUMBERS -->
   <section class="us-stats bg-court-deep">
     <div class="container-x">
       <p class="eyebrow" data-reveal>En números</p>
@@ -124,50 +171,159 @@ const manifestBlocks = [
     </div>
   </section>
 
+  <!-- CTA FINAL -->
+  <section class="us-cta bg-bone">
+    <div class="container-narrow us-cta__inner">
+      <p class="eyebrow" data-reveal>Conversemos</p>
+      <h2 class="us-cta__title font-display-narrow" data-split>
+        ¿Tu proyecto necesita <em class="font-serif-italic text-orange">método</em>?
+      </h2>
+      <p class="us-cta__body" data-reveal>
+        Si llegaste hasta acá, probablemente sí. Conversemos sin compromiso: una llamada inicial para entender tu momento y ver si tiene sentido trabajar juntos.
+      </p>
+      <div class="us-cta__row">
+        <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.default)} target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+        <a class="btn btn-outline btn-outline--dark" data-magnetic href="/contacto">Coordinar reunión</a>
+      </div>
+    </div>
+  </section>
+
   <style>
-    .page-hero { padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 1rem); }
-    .page-hero__title { font-size: var(--title-h1); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
-    .page-hero__lead { max-width: 62ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
-
-    .manifest-section { padding-block: var(--spacing-section); color: var(--color-ink); overflow: hidden; }
-    .manifest-wrap { margin-top: clamp(2.5rem, 5vw, 4rem); }
-    .manifest-head { max-width: 52rem; margin: 0 auto clamp(2.5rem, 5vw, 4rem); display: grid; gap: 0.9rem; text-align: center; justify-items: center; }
-    .manifest-head .eyebrow { color: var(--color-orange); }
-    .manifest-title { font-size: var(--title-h2); line-height: 1.15; letter-spacing: -0.02em; margin: 0; max-width: 22ch; }
-    .manifest-lead { max-width: 56ch; color: rgba(10,10,10,0.72); font-size: 0.95rem; line-height: 1.6; margin: 0; }
-
-    .manifest-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(1rem, 2vw, 1.6rem);
-      max-width: 64rem;
-      margin: 0 auto;
+    /* ----- HERO ----- */
+    .page-hero {
+      padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 1rem);
+      position: relative;
+      overflow: hidden;
     }
-    @media (max-width: 800px) { .manifest-grid { grid-template-columns: 1fr; } }
-    .manifest-card {
+    .page-hero__inner { position: relative; z-index: 2; }
+    .page-hero__title { font-size: var(--title-h1); line-height: 1.1; letter-spacing: -0.025em; margin: 0.8rem 0 1.2rem; max-width: 22ch; }
+    .page-hero__lead { max-width: 62ch; color: rgba(242,239,232,0.82); font-size: var(--title-lead); line-height: 1.6; }
+    .page-hero__lead strong { color: var(--color-bone); font-weight: 600; }
+    .page-hero__macro {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .page-hero__macro span {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(18rem, 40vw, 32rem);
+      line-height: 0.78;
+      letter-spacing: -0.06em;
+      color: var(--color-bone);
+      opacity: 0.04;
+      transform: translateX(8%) rotate(-4deg);
+      user-select: none;
+    }
+
+    /* ----- PULL QUOTE ----- */
+    .pullquote { padding-block: clamp(3rem, 6vw, 5rem); color: var(--color-ink); }
+    .pullquote__text {
+      font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      margin: 0;
+      max-width: 28ch;
+      color: var(--color-ink);
+    }
+    .pullquote__text::before { content: ''; display: block; width: 2.4rem; height: 2px; background: var(--color-orange); margin-bottom: 1.2rem; }
+    .pullquote__attr { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.6; margin: 1.4rem 0 0; }
+
+    /* ----- ORIGEN ----- */
+    .origin { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .origin__inner { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    @media (max-width: 800px) { .origin__inner { grid-template-columns: 1fr; gap: 1.4rem; } }
+    .origin__title { font-size: var(--title-h2); letter-spacing: -0.025em; line-height: 1.1; margin: 0.6rem 0 0; max-width: 14ch; }
+    .origin__body { font-size: 1rem; line-height: 1.7; color: rgba(10,10,10,0.78); margin: 0 0 1.2rem; max-width: 58ch; }
+    .origin__body:last-child { margin-bottom: 0; }
+
+    /* ----- LAS 5 CAPAS ----- */
+    .layers { padding-block: var(--spacing-section); background: var(--color-court); color: var(--color-bone); position: relative; overflow: hidden; }
+    .layers__head { max-width: 60rem; display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .layers__head .eyebrow { color: var(--color-orange); }
+    .layers__title { font-size: var(--title-h2); line-height: 1.1; letter-spacing: -0.025em; margin: 0; max-width: 26ch; }
+    .layers__lead { max-width: 58ch; color: rgba(242,239,232,0.78); font-size: var(--title-lead); line-height: 1.65; margin: 0; }
+    .layers__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(242,239,232,0.18);
+      border-bottom: 1px solid rgba(242,239,232,0.18);
+    }
+    @media (max-width: 1000px) { .layers__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .layers__grid { grid-template-columns: 1fr; } }
+    .layer {
+      padding: 1.6rem 1.3rem 1.8rem;
+      border-right: 1px solid rgba(242,239,232,0.18);
+      display: grid;
+      gap: 0.5rem;
+      align-content: start;
+      min-height: 13rem;
+    }
+    .layer:last-child { border-right: 0; }
+    @media (max-width: 1000px) {
+      .layer:nth-child(2) { border-right: 0; }
+      .layer:nth-child(1), .layer:nth-child(2), .layer:nth-child(3) { border-bottom: 1px solid rgba(242,239,232,0.18); }
+    }
+    @media (max-width: 560px) {
+      .layer { border-right: 0; border-bottom: 1px solid rgba(242,239,232,0.18); }
+      .layer:last-child { border-bottom: 0; }
+    }
+    .layer__code { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-orange); margin: 0; }
+    .layer__name { font-size: var(--title-h3); letter-spacing: -0.02em; line-height: 1.1; margin: 0.1rem 0 0.3rem; }
+    .layer__body { font-size: 0.92rem; line-height: 1.55; color: rgba(242,239,232,0.78); margin: 0; max-width: 28ch; }
+
+    /* ----- 4 PILARES ----- */
+    .pillars { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .pillars__head { max-width: 60rem; display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .pillars__head .eyebrow { color: var(--color-orange); }
+    .pillars__title { font-size: var(--title-h2); line-height: 1.1; letter-spacing: -0.025em; margin: 0; max-width: 26ch; }
+    .pillars__lead { max-width: 58ch; color: rgba(10,10,10,0.72); font-size: var(--title-lead); line-height: 1.65; margin: 0; }
+    .pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(0.9rem, 1.6vw, 1.4rem);
+    }
+    @media (max-width: 1000px) { .pillars__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pillars__grid { grid-template-columns: 1fr; } }
+    .pillar {
       background: var(--color-paper);
       border: 1px solid rgba(10,10,10,0.08);
-      padding: 1.6rem 1.5rem 1.6rem;
+      padding: 1.6rem 1.3rem 1.4rem;
       display: grid;
-      gap: 0.75rem;
+      gap: 0.55rem;
+      align-content: start;
+      transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, background 0.3s ease;
+      color: var(--color-ink);
+      text-decoration: none;
     }
-    .manifest-card__top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-    .manifest-card__num { font-size: 1.8rem; line-height: 0.95; letter-spacing: -0.02em; color: var(--color-orange); }
-    .manifest-card__eye { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; }
-    .manifest-card__title { font-size: var(--title-h3); line-height: 1.2; letter-spacing: -0.015em; margin: 0.1rem 0 0; }
-    .manifest-card__body { font-size: 0.92rem; line-height: 1.6; color: rgba(10,10,10,0.78); margin: 0; }
+    .pillar:hover { transform: translateY(-4px); border-color: var(--color-orange); }
+    .pillar__code { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-orange); margin: 0; }
+    .pillar__name { font-size: var(--title-h3); letter-spacing: -0.02em; line-height: 1.15; margin: 0.1rem 0 0; }
+    .pillar__target { font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-court); margin: 0.1rem 0 0.4rem; opacity: 0.7; }
+    .pillar__desc { font-size: 0.9rem; line-height: 1.55; color: rgba(10,10,10,0.78); margin: 0 0 0.8rem; }
+    .pillar__arrow { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-orange); margin-top: auto; }
 
+    /* ----- VALUES ----- */
     .values { padding-block: var(--spacing-section); }
-    .values__head { display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 52rem; }
+    .values__head { display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 56rem; }
     .values__title { font-size: var(--title-h2); letter-spacing: -0.02em; margin: 0; line-height: 1.15; }
+    .values__lead { max-width: 56ch; color: rgba(242,239,232,0.72); font-size: var(--title-lead); line-height: 1.65; margin: 0; }
     .values__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
     @media (max-width: 1000px) { .values__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 540px) { .values__grid { grid-template-columns: 1fr; } }
     .value-card { padding: 1.6rem 1.3rem; background: rgba(242,239,232,0.03); border: 1px solid var(--color-line); display: grid; gap: 0.5rem; min-height: 16rem; }
     .value-card__num { font-size: 2.2rem; line-height: 0.9; color: var(--color-orange); margin: 0; }
-    .value-card__title { font-size: 1.05rem; letter-spacing: -0.015em; margin: 0; }
+    .value-card__title { font-size: var(--title-h3); letter-spacing: -0.015em; margin: 0; }
     .value-card p { color: rgba(242,239,232,0.78); margin: 0; font-size: 0.92rem; }
 
+    /* ----- STATS ----- */
     .us-stats { padding-block: var(--spacing-section); }
     .us-stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); margin-top: 1rem; }
     @media (max-width: 900px) { .us-stats__grid { grid-template-columns: repeat(2, 1fr); } }
@@ -177,5 +333,16 @@ const manifestBlocks = [
     .us-stat__num { font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: 0.95; letter-spacing: -0.03em; color: var(--color-orange); margin: 0; }
     .us-stat__label { font-size: 0.95rem; font-weight: 600; margin: 0; }
     .us-stat__sub { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin: 0; }
+
+    /* ----- CTA FINAL ----- */
+    .us-cta { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .us-cta__inner { display: grid; gap: 1rem; max-width: 56rem; text-align: center; justify-items: center; }
+    .us-cta__title { font-size: var(--title-h2); line-height: 1.1; letter-spacing: -0.025em; margin: 0.4rem 0 0.6rem; max-width: 22ch; }
+    .us-cta__body { font-size: var(--title-lead); line-height: 1.65; color: rgba(10,10,10,0.72); max-width: 56ch; margin: 0 0 1.4rem; }
+    .us-cta__row { display: flex; gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
+    .us-cta__row .btn { min-width: 13rem; justify-content: center; }
+    /* outline button visible sobre fondo claro */
+    .btn-outline--dark { color: var(--color-ink); border-color: var(--color-ink); }
+    .btn-outline--dark:hover { background: var(--color-ink); color: var(--color-bone); }
   </style>
 </Base>
