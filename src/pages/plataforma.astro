@@ -23,17 +23,50 @@ const views = [
   { tag: 'Vista Admin',   body: 'Lectura institucional: programa completo, comunidades, inversión y correlación entre recursos y crecimiento.' },
 ];
 
-// 9 Módulos de la plataforma
-const modules = [
-  { code: '01', name: 'Perfil del Atleta Integral', body: 'PAI dinámico organizado en 5 pilares que evoluciona con cada registro diario.' },
-  { code: '02', name: 'Check-in diario',           body: 'Diseñado para completarse en menos de 90 segundos. Consistencia sobre profundidad.' },
-  { code: '03', name: 'Planificación',             body: 'Macro temporada · Meso mensual · Micro semanal. Cada tarea conectada a un objetivo.' },
-  { code: '04', name: 'Comunicación entre actores',body: 'Red estructurada por pilar y rol. Conversaciones contextualizadas, no chats sueltos.' },
-  { code: '05', name: 'AREF',                      body: '52 ciclos de mejora por año. Cada fase tiene un día, un actor y una acción concreta.' },
-  { code: '06', name: 'Dashboard Espejo Inteligente', body: 'La capa de visualización que vuelve visible lo invisible. Tres vistas según rol.' },
-  { code: '07', name: 'Social',                    body: 'Feed de progreso interno y perfil público compartible. Privacidad por default.' },
-  { code: '08', name: 'Institucional',             body: 'Director, head coach, entrenador, apoderado y atleta. Los mismos datos desde 5 perspectivas.' },
-  { code: '09', name: 'Financiero',                body: 'Inversión mensual por categoría, modelo de donaciones y correlación con crecimiento del PAI.' },
+// Ecosistema GSM — 7 pasos del proceso (ciclo continuo)
+const ecosystem = [
+  {
+    n: '01',
+    name: 'Observación',
+    who: 'Atleta',
+    what: 'El atleta completa el check-in diario de 90 segundos. Registra datos de los cinco pilares: carga de entrenamiento, sueño, estado emocional, aprendizaje y reflexión personal.',
+  },
+  {
+    n: '02',
+    name: 'Diagnóstico',
+    who: 'Sistema + Coach',
+    what: 'La plataforma procesa los registros acumulados y detecta patrones, tendencias y anomalías. El coach recibe un resumen automático por pilar con alertas cuando algún indicador cae bajo el umbral.',
+  },
+  {
+    n: '03',
+    name: 'Visualización',
+    who: 'Atleta + Coach',
+    what: 'Los datos se transforman en imágenes comprensibles: radar PAI, barras de progreso, tendencias históricas y el espejo integral del atleta. Lo invisible se vuelve visible.',
+  },
+  {
+    n: '04',
+    name: 'Planificación',
+    who: 'Coach',
+    what: 'En base al diagnóstico y la visualización, el coach ajusta el plan micro de la semana. Define tareas concretas por pilar, asigna prioridades y deriva al especialista si corresponde.',
+  },
+  {
+    n: '05',
+    name: 'Acción',
+    who: 'Atleta',
+    what: 'El atleta ejecuta el plan: entrena, estudia, reflexiona, aplica las herramientas asignadas. Cada acción queda registrada automáticamente en la plataforma.',
+  },
+  {
+    n: '06',
+    name: 'Evaluación',
+    who: 'Coach + Sistema',
+    what: 'Se mide la evolución real comparando el estado actual con el histórico. El índice PAI se actualiza, los pilares muestran su tendencia y el sistema identifica qué funcionó y qué no.',
+  },
+  {
+    n: '07',
+    name: 'Retroalimentación',
+    who: 'Atleta + Coach',
+    what: 'El ciclo se cierra con el feedback del atleta. Sus reflexiones y percepciones alimentan el próximo ciclo de Observación. 52 oportunidades de mejora al año.',
+  },
 ];
 
 // Roles del ecosistema
@@ -50,7 +83,7 @@ const jsonLd = {
   name: 'Plataforma GSM',
   applicationCategory: 'SportsApplication',
   operatingSystem: 'Web',
-  description: 'Plataforma de desarrollo deportivo integral con Perfil del Atleta Integral (PAI), Dashboard Espejo Inteligente, metodología AREF y 9 módulos integrados.',
+  description: 'Plataforma de desarrollo deportivo integral con Perfil del Atleta Integral (PAI), Dashboard Espejo Inteligente, metodología AREF y un ecosistema de siete pasos en ciclo continuo.',
   provider: { '@type': 'Organization', name: 'GSM — Game · Set...Match', url: SITE.url },
   audience: { '@type': 'Audience', audienceType: 'Atletas, clubes, federaciones, colegios e instituciones deportivas' },
 };
@@ -58,7 +91,7 @@ const jsonLd = {
 
 <Base
   title="Plataforma GSM — Análisis de Datos Inteligente y Dashboard Espejo"
-  description="La plataforma de GSM integra el Perfil del Atleta Integral, el Dashboard Espejo Inteligente, la metodología AREF y 9 módulos en un solo ecosistema."
+  description="La plataforma de GSM integra el Perfil del Atleta Integral, el Dashboard Espejo Inteligente, la metodología AREF y un ecosistema de 7 pasos en ciclo continuo."
   breadcrumbs={breadcrumbs}
   jsonLd={jsonLd}
 >
@@ -70,11 +103,11 @@ const jsonLd = {
         Análisis de Datos <em class="font-serif-italic text-orange">Inteligente</em>.
       </h1>
       <p class="plat-hero__lead">
-        Un ecosistema colaborativo que desarrolla atletas integrales a través de <strong>metodología, datos, educación y acompañamiento humano</strong>. La plataforma integra los cinco pilares del atleta, el dashboard espejo inteligente y los nueve módulos operativos en un solo lugar.
+        Un ecosistema colaborativo que desarrolla atletas integrales a través de <strong>metodología, datos, educación y acompañamiento humano</strong>. La plataforma integra los cinco pilares del atleta, el dashboard espejo inteligente y un ciclo continuo de siete pasos.
       </p>
       <div class="plat-hero__cta">
         <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.prevention)} target="_blank" rel="noopener">Solicitar demo</a>
-        <a class="btn btn-outline" data-magnetic href="#modulos">Ver los 9 módulos</a>
+        <a class="btn btn-outline" data-magnetic href="#ecosistema">Ver el ecosistema</a>
       </div>
     </div>
     <div class="plat-hero__macro" aria-hidden="true"><span>P</span></div>
@@ -129,28 +162,37 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- 9 MÓDULOS -->
-  <section class="modules bg-ink" id="modulos">
+  <!-- ECOSISTEMA — 7 PASOS -->
+  <section class="ecosys bg-ink" id="ecosistema">
     <div class="container-x">
-      <header class="modules__head">
-        <p class="eyebrow" data-reveal>Estructura técnica</p>
-        <h2 class="modules__title font-display-narrow" data-split>
-          Nueve módulos, un mismo <em class="font-serif-italic text-orange">ecosistema</em>.
+      <header class="ecosys__head">
+        <p class="eyebrow" data-reveal>Ecosistema GSM</p>
+        <h2 class="ecosys__title font-display-narrow" data-split>
+          Siete pasos, un mismo <em class="font-serif-italic text-orange">ciclo continuo</em>.
         </h2>
-        <p class="modules__lead" data-reveal style="--reveal-delay:120ms">
-          La plataforma se organiza en nueve módulos integrados que cubren el desarrollo individual del atleta, la metodología, la vida institucional y la dimensión social y financiera.
+        <p class="ecosys__lead" data-reveal style="--reveal-delay:120ms">
+          El ecosistema opera como un ciclo que convierte datos e interacciones cotidianas en evolución real y medible del atleta. Cada paso tiene un actor, una acción concreta y un resultado. Al cerrar el ciclo, el próximo arranca con información más rica.
         </p>
       </header>
 
-      <div class="modules__grid">
-        {modules.map((m, i) => (
-          <article class="mod-card" data-reveal style={`--reveal-delay:${i * 70}ms`}>
-            <p class="mod-card__code font-display-narrow">{m.code}</p>
-            <h3 class="mod-card__name font-display-narrow">{m.name}</h3>
-            <p class="mod-card__body">{m.body}</p>
-          </article>
+      <ol class="ecosys__list">
+        {ecosystem.map((e, i) => (
+          <li class="step" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <div class="step__num font-display-narrow">{e.n}</div>
+            <div class="step__body">
+              <div class="step__top">
+                <h3 class="step__name font-display-narrow">{e.name}</h3>
+                <span class="step__who font-mono">{e.who}</span>
+              </div>
+              <p class="step__what">{e.what}</p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
+
+      <p class="ecosys__foot font-mono" data-reveal>
+        Paso 07 cierra el ciclo · Paso 01 lo reabre con datos nuevos · 52 ciclos al año
+      </p>
     </div>
   </section>
 
@@ -313,31 +355,74 @@ const jsonLd = {
     .pillar-card__name { font-size: var(--title-h3); letter-spacing: -0.02em; line-height: 1.1; margin: 0.15rem 0 0.2rem; }
     .pillar-card__body { font-size: 0.88rem; line-height: 1.55; color: rgba(10,10,10,0.72); margin: 0; }
 
-    /* ----- 9 MÓDULOS ----- */
-    .modules { padding-block: var(--spacing-section); color: var(--color-bone); }
-    .modules__head { max-width: 60rem; display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-    .modules__head .eyebrow { color: var(--color-orange); }
-    .modules__title { font-size: var(--title-h2); line-height: 1.1; letter-spacing: -0.025em; margin: 0; max-width: 22ch; }
-    .modules__lead { max-width: 60ch; color: rgba(242,239,232,0.78); font-size: var(--title-lead); line-height: 1.65; margin: 0; }
-    .modules__grid {
+    /* ----- ECOSISTEMA — 7 PASOS ----- */
+    .ecosys { padding-block: var(--spacing-section); color: var(--color-bone); }
+    .ecosys__head { max-width: 60rem; display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .ecosys__head .eyebrow { color: var(--color-orange); }
+    .ecosys__title { font-size: var(--title-h2); line-height: 1.1; letter-spacing: -0.025em; margin: 0; max-width: 26ch; }
+    .ecosys__lead { max-width: 62ch; color: rgba(242,239,232,0.78); font-size: var(--title-lead); line-height: 1.65; margin: 0; }
+
+    .ecosys__list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.4rem;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(0.8rem, 1.5vw, 1.2rem);
+      gap: 0;
+      border-top: 1px solid var(--color-line);
     }
-    @media (max-width: 900px) { .modules__grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .modules__grid { grid-template-columns: 1fr; } }
-    .mod-card {
-      padding: 1.5rem 1.3rem 1.6rem;
-      border: 1px solid var(--color-line);
-      background: rgba(242,239,232,0.03);
+    .step {
       display: grid;
-      gap: 0.4rem;
-      align-content: start;
-      min-height: 12rem;
+      grid-template-columns: 6rem 1fr;
+      gap: clamp(1rem, 3vw, 2.4rem);
+      align-items: start;
+      padding-block: clamp(1.4rem, 2.5vw, 2rem);
+      border-bottom: 1px solid var(--color-line);
     }
-    .mod-card__code { font-size: 1.6rem; line-height: 0.9; letter-spacing: -0.025em; color: var(--color-orange); margin: 0; }
-    .mod-card__name { font-size: var(--title-h3); letter-spacing: -0.015em; line-height: 1.15; margin: 0.15rem 0 0.2rem; }
-    .mod-card__body { font-size: 0.88rem; line-height: 1.55; color: rgba(242,239,232,0.78); margin: 0; }
+    @media (max-width: 700px) {
+      .step { grid-template-columns: 1fr; gap: 0.6rem; }
+    }
+    .step__num {
+      font-size: clamp(2.2rem, 3.6vw, 3rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: var(--color-orange);
+      margin: 0;
+    }
+    .step__body { display: grid; gap: 0.55rem; max-width: 64ch; }
+    .step__top {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .step__name {
+      font-size: var(--title-h3);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 0;
+    }
+    .step__who {
+      font-size: 0.66rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-orange);
+      padding: 0.25rem 0.55rem;
+      border: 1px solid var(--color-orange);
+      border-radius: var(--radius-pill);
+    }
+    .step__what {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: rgba(242,239,232,0.82);
+      margin: 0;
+    }
+    .ecosys__foot {
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin: 1.4rem 0 0;
+    }
 
     /* ----- AREF ----- */
     .aref { padding-block: var(--spacing-section); color: var(--color-ink); }
