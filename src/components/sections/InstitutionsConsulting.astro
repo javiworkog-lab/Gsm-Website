@@ -1,0 +1,230 @@
+---
+import { waLink, WHATSAPP_MESSAGES } from '../../lib/site';
+
+const areas = [
+  {
+    num: '01',
+    name: 'Diagnóstico organizacional',
+    body: 'Mapeo del estado actual: estructura, talento, recursos, cultura y brechas. Una foto honesta antes de proponer cambios.',
+  },
+  {
+    num: '02',
+    name: 'Plan deportivo y de alto rendimiento',
+    body: 'Diseño del plan competitivo, criterios técnicos, calendarios, indicadores y soporte de ciencias del deporte.',
+  },
+  {
+    num: '03',
+    name: 'Fondos y patrocinios',
+    body: 'Ordenamos el proyecto para que sea financiable. Conexión con marcas, sponsors, fondos concursables y donantes.',
+  },
+  {
+    num: '04',
+    name: 'Estructura y sostenibilidad',
+    body: 'Procesos, roles, reportería y gobierno. Que el proyecto deportivo se sostenga más allá de una temporada.',
+  },
+];
+
+const targets = [
+  { tag: 'Clubes deportivos', body: 'De amateur a profesional: ordenar el club como organización y proyectar su crecimiento.' },
+  { tag: 'Federaciones', body: 'Planificación competitiva, gobernanza, fondos y soporte técnico al deporte de selección.' },
+  { tag: 'Fundaciones · Proyectos', body: 'Iniciativas sociales y deportivas que necesitan estructura, foco y financiamiento.' },
+];
+---
+
+<section class="inst bg-bone" id="instituciones">
+  <div class="inst__macro" aria-hidden="true"><span>S</span></div>
+
+  <div class="container-x inst__container">
+    <header class="inst__head">
+      <span class="eyebrow font-mono" data-reveal>Consultoría institucional · Clubes · Federaciones · Fundaciones</span>
+      <h2 class="inst__title font-display-narrow" data-split>
+        Las instituciones también necesitan <em class="font-serif-italic text-orange">método</em>.
+      </h2>
+      <p class="inst__lead" data-reveal style="--reveal-delay:160ms">
+        GSM no es solo agencia de atletas. Trabajamos con clubes, federaciones, fundaciones y organizaciones que quieren ordenar su proyecto deportivo, profesionalizar su gestión y financiar lo que vienen construyendo.
+      </p>
+    </header>
+
+    <div class="inst__areas">
+      {areas.map((a, i) => (
+        <article class="area" data-reveal style={`--reveal-delay:${i * 110}ms`}>
+          <p class="area__num font-display-narrow">{a.num}</p>
+          <h3 class="area__name font-mono">{a.name}</h3>
+          <p class="area__body">{a.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="inst__targets">
+      <p class="inst__targets-eye font-mono" data-reveal>Trabajamos con</p>
+      <div class="inst__targets-grid">
+        {targets.map((t, i) => (
+          <article class="target" data-reveal style={`--reveal-delay:${i * 110}ms`}>
+            <p class="target__tag font-mono">{t.tag}</p>
+            <p class="target__body">{t.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="inst__cta">
+      <a class="btn btn-primary" data-magnetic
+         href={waLink(WHATSAPP_MESSAGES.institucional)} target="_blank" rel="noopener"
+         aria-label="Hablar con GSM por WhatsApp como representante de club, federación o fundación">
+        Conversemos una consultoría →
+      </a>
+      <p class="inst__foot font-mono">Cada consultoría se diseña a medida del momento institucional.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .inst {
+    padding-block: var(--spacing-section);
+    color: var(--color-ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .inst__macro {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+  .inst__macro span {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(24rem, 60vmin, 50rem);
+    line-height: 0.78;
+    letter-spacing: -0.06em;
+    color: var(--color-ink);
+    opacity: 0.04;
+    transform: translateX(-22%) rotate(-4deg);
+    user-select: none;
+  }
+  .inst__container { position: relative; z-index: 1; }
+
+  .inst__head {
+    max-width: 60rem;
+    display: grid;
+    gap: 1.1rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .inst__head .eyebrow { color: var(--color-orange); }
+  .inst__title {
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 22ch;
+  }
+  .inst__lead {
+    max-width: 58ch;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(10,10,10,0.78);
+    margin: 0;
+  }
+
+  .inst__areas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--color-line-ink, rgba(10,10,10,0.12));
+    border-bottom: 1px solid var(--color-line-ink, rgba(10,10,10,0.12));
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  }
+  @media (max-width: 1000px) { .inst__areas { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .inst__areas { grid-template-columns: 1fr; } }
+  .area {
+    padding: 1.8rem 1.4rem 1.6rem;
+    border-right: 1px solid var(--color-line-ink, rgba(10,10,10,0.12));
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+  }
+  .area:last-child { border-right: 0; }
+  @media (max-width: 1000px) {
+    .area:nth-child(2) { border-right: 0; }
+    .area:nth-child(1), .area:nth-child(2) { border-bottom: 1px solid var(--color-line-ink, rgba(10,10,10,0.12)); }
+  }
+  @media (max-width: 560px) {
+    .area { border-right: 0; border-bottom: 1px solid var(--color-line-ink, rgba(10,10,10,0.12)); }
+    .area:last-child { border-bottom: 0; }
+  }
+  .area__num {
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--color-orange);
+    margin: 0;
+  }
+  .area__name {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-court);
+    margin: 0;
+  }
+  .area__body {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: rgba(10,10,10,0.78);
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  .inst__targets { margin-bottom: clamp(2rem, 3.5vw, 3rem); }
+  .inst__targets-eye {
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin: 0 0 1rem;
+  }
+  .inst__targets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 800px) { .inst__targets-grid { grid-template-columns: 1fr; } }
+  .target {
+    padding: 1.3rem 1.2rem;
+    border: 1px solid rgba(10,10,10,0.1);
+    background: var(--color-paper);
+    display: grid;
+    gap: 0.45rem;
+  }
+  .target__tag {
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-court);
+    margin: 0;
+  }
+  .target__body {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(10,10,10,0.78);
+    margin: 0;
+  }
+
+  .inst__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.4rem;
+  }
+  .inst__foot {
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(10,10,10,0.55);
+    margin: 0;
+  }
+</style>

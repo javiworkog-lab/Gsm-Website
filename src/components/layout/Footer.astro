@@ -1,0 +1,120 @@
+---
+import { SITE, NAV, SERVICES, waLink } from '../../lib/site';
+import Logo from '../ui/Logo.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="gsm-footer">
+  <div class="container-x gsm-footer__brand">
+    <Logo variant="white" withTagline={false} size={56} />
+    <p class="gsm-footer__tag font-mono">Game · Set...Match · Chile</p>
+  </div>
+
+  <div class="container-x gsm-footer__grid">
+    <div class="gsm-footer__col">
+      <p class="eyebrow">Sobre nosotros</p>
+      <p class="gsm-footer__lead">
+        Agencia chilena de gestión deportiva integral. Convertimos talento en carrera, y carrera en legado.
+      </p>
+      <a class="btn btn-primary" data-magnetic href={waLink()} target="_blank" rel="noopener">Conversemos</a>
+    </div>
+
+    <div class="gsm-footer__col">
+      <p class="eyebrow">Servicios</p>
+      <ul>
+        {SERVICES.map((s) => (
+          <li><a href={`/servicios/${s.slug}`}><span class="num">{s.code}</span>{s.title}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="gsm-footer__col">
+      <p class="eyebrow">Navegar</p>
+      <ul>
+        {NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+        <li><a href="/atletas">Galería de atletas</a></li>
+      </ul>
+    </div>
+
+    <div class="gsm-footer__col">
+      <p class="eyebrow">Contacto</p>
+      <address>
+        <a href="mailto:contacto@gsm.cl">contacto@gsm.cl</a><br />
+        <a href={waLink()} target="_blank" rel="noopener">WhatsApp: {SITE.contact.phone}</a><br />
+        {SITE.address.streetAddress}<br />
+        {SITE.address.addressLocality}, Santiago, Chile<br />
+        <span class="opacity-60">{SITE.contact.hours}</span>
+      </address>
+      <div class="gsm-footer__social">
+        <a href={SITE.social.instagram} target="_blank" rel="noopener" aria-label="Instagram GSM">Instagram ↗</a>
+        <a href={SITE.social.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn GSM">LinkedIn ↗</a>
+        <a href={SITE.social.youtube} target="_blank" rel="noopener" aria-label="YouTube GSM">YouTube ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-x gsm-footer__bottom">
+    <p>© {year} GSM · Game · Set...Match · Chile · Todos los derechos reservados.</p>
+    <p>Hecho en Santiago. Pensado para el deporte.</p>
+  </div>
+</footer>
+
+<style is:global>
+  .gsm-footer {
+    background: var(--color-ink);
+    color: var(--color-bone);
+    border-top: 1px solid var(--color-line);
+    overflow: hidden;
+    position: relative;
+  }
+  .gsm-footer__brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: clamp(3rem, 6vw, 4.5rem) 0 1.6rem;
+    border-bottom: 1px solid var(--color-line);
+    flex-wrap: wrap;
+  }
+  .gsm-footer__tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin: 0;
+  }
+  .gsm-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+    gap: 2.5rem;
+    padding: clamp(2.5rem, 5vw, 3.5rem) 0 2.5rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  @media (max-width: 900px) {
+    .gsm-footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 540px) {
+    .gsm-footer__grid { grid-template-columns: 1fr; }
+  }
+  .gsm-footer__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+  .gsm-footer__col li a { display: inline-flex; gap: 0.6rem; align-items: baseline; transition: color 0.25s; }
+  .gsm-footer__col li a:hover { color: var(--color-orange); }
+  .gsm-footer__col li .num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-orange); }
+  .gsm-footer__lead { max-width: 28ch; margin: 0.6rem 0 1.4rem; opacity: 0.8; }
+  .gsm-footer__social { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .gsm-footer__social a:hover { color: var(--color-orange); }
+  address { font-style: normal; }
+  address a:hover { color: var(--color-orange); }
+  .gsm-footer__bottom {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: 1.4rem 0 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+  @media (max-width: 600px) {
+    .gsm-footer__bottom { flex-direction: column; }
+  }
+</style>

@@ -1,0 +1,5 @@
+/* Auto-cargadas vía Google Fonts CSS (preconnect en Base.astro)
+ * Bricolage Grotesque, Fraunces, Inter Tight, JetBrains Mono
+ * Self-host migration: cuando se ejecute, se reemplazarán con @font-face local woff2.
+ * Por ahora se usan via <link> en Base.astro para acelerar setup.
+ */

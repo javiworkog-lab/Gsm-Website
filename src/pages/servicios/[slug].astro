@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { SITE, waLink, WHATSAPP_MESSAGES } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const all = await getCollection('servicios');
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const data = entry.data;
+
+const breadcrumbs = [
+  { name: 'Inicio', url: SITE.url },
+  { name: 'Servicios', url: `${SITE.url}/servicios` },
+  { name: data.title, url: `${SITE.url}/servicios/${data.slug}` },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: data.faq.map((f: any) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  title={`${data.title} — Servicio GSM`}
+  description={data.summary}
+  jsonLd={faqLd}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="srv-hero bg-ink">
+    <div class="container-x srv-hero__inner">
+      <div>
+        <p class="eyebrow">{data.code} · {data.eyebrow}</p>
+        <h1 class="srv-hero__title font-display-narrow" data-split>{data.title}</h1>
+        <p class="srv-hero__subtitle font-mono">{data.subtitle}</p>
+        <p class="srv-hero__summary">{data.summary}</p>
+        <div class="srv-hero__cta">
+          <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.servicios)} target="_blank" rel="noopener">Hablemos de {data.title}</a>
+          <a class="btn btn-outline" data-magnetic href="/contacto">Coordinar reunión</a>
+        </div>
+      </div>
+      <aside class="srv-hero__aside">
+        <p class="font-mono srv-hero__metric">{data.metric}</p>
+        <ul>
+          <li><strong>Para:</strong></li>
+          {data.audience.map((a: string) => (<li>· {a}</li>))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-bone srv-body">
+    <div class="container-narrow grid-editorial">
+      <div class="prose-editorial" style="grid-column: span 8;">
+        <Content />
+      </div>
+      <div class="srv-deliverables" style="grid-column: span 4;">
+        <p class="eyebrow" style="color:var(--color-orange)">Entregables</p>
+        <ul>
+          {data.deliverables.map((d: string) => (
+            <li>· {d}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-ink srv-process">
+    <div class="container-x">
+      <header class="srv-process__head">
+        <p class="eyebrow">Proceso</p>
+        <h2 class="font-display-narrow srv-process__title" data-split>Cómo trabajamos.</h2>
+      </header>
+      <div class="srv-process__grid">
+        {data.process.map((p: any, i: number) => (
+          <article class="proc-card" data-reveal style={`--reveal-delay:${i * 100}ms`}>
+            <p class="proc-card__step font-display">{p.step}</p>
+            <h3 class="proc-card__title font-display-narrow">{p.title}</h3>
+            <p>{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bone srv-faq">
+    <div class="container-narrow">
+      <p class="eyebrow" style="color:var(--color-orange)">Preguntas frecuentes</p>
+      <h2 class="font-display-narrow srv-faq__title">FAQ {data.title}.</h2>
+      <dl>
+        {data.faq.map((f: any) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </dl>
+      <div class="srv-faq__cta">
+        <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.servicios)} target="_blank" rel="noopener">Conversemos</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .srv-hero { padding-block: calc(var(--spacing-section) + 3.5rem) var(--spacing-section); }
+    .srv-hero__inner { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: end; }
+    @media (max-width: 900px) { .srv-hero__inner { grid-template-columns: 1fr; } }
+    .srv-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.6rem 0 0.6rem; }
+    .srv-hero__subtitle { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; margin: 0 0 1.2rem; }
+    .srv-hero__summary { max-width: 56ch; color: rgba(242,239,232,0.82); font-size: 0.95rem; line-height: 1.6; margin: 0 0 1.6rem; }
+    .srv-hero__cta { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .srv-hero__aside { background: rgba(242,239,232,0.04); border: 1px solid var(--color-line); padding: 1.3rem 1.3rem 1.6rem; }
+    .srv-hero__aside ul { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.3rem; font-size: 0.95rem; }
+    .srv-hero__aside strong { color: var(--color-orange); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    .srv-hero__metric { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-orange); margin: 0; }
+
+    .srv-body { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .srv-body .prose-editorial { color: var(--color-ink); }
+    .srv-deliverables ul { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.5rem; }
+    .srv-deliverables li { font-size: 1rem; line-height: 1.4; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(10,10,10,0.08); }
+
+    .srv-process { padding-block: var(--spacing-section); }
+    .srv-process__head { display: grid; gap: 0.7rem; margin-bottom: 2.5rem; max-width: 50rem; }
+    .srv-process__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+    .srv-process__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+    @media (max-width: 1000px) { .srv-process__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .srv-process__grid { grid-template-columns: 1fr; } }
+    .proc-card { padding: 1.6rem 1.3rem; background: rgba(242,239,232,0.03); border: 1px solid var(--color-line); display: grid; gap: 0.6rem; min-height: 16rem; }
+    .proc-card__step { font-size: 1.9rem; line-height: 0.95; letter-spacing: -0.025em; color: var(--color-orange); margin: 0; }
+    .proc-card__title { font-size: 1rem; margin: 0; letter-spacing: -0.015em; line-height: 1.2; }
+    .proc-card p { color: rgba(242,239,232,0.78); margin: 0; font-size: 0.85rem; line-height: 1.6; }
+
+    .srv-faq { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .srv-faq__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15; margin: 0.6rem 0 2rem; }
+    .faq-item { border-top: 1px solid rgba(10,10,10,0.1); padding: 1.2rem 0; }
+    .faq-item:last-of-type { border-bottom: 1px solid rgba(10,10,10,0.1); }
+    .faq-item summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.3vw, 1.15rem); letter-spacing: -0.015em; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+    .faq-item summary::after { content: '+'; color: var(--color-orange); font-size: 1.6rem; line-height: 1; transition: transform 0.3s; }
+    .faq-item[open] summary::after { content: '−'; transform: rotate(0); }
+    .faq-item p { margin: 0.8rem 0 0; max-width: 72ch; line-height: 1.6; }
+    .srv-faq__cta { margin-top: 2.5rem; }
+  </style>
+</Base>

@@ -1,0 +1,77 @@
+---
+import { waLink, WHATSAPP_MESSAGES } from '../../lib/site';
+---
+
+<section class="bigcta bg-ink" id="cta-final">
+  <div class="bigcta__bg" aria-hidden="true">
+    <img src="/images/action/tennis-serve.jpg" alt="" loading="lazy" decoding="async" />
+  </div>
+  <div class="container-x bigcta__inner">
+    <span class="eyebrow" data-reveal>Próximo punto</span>
+    <h2 class="bigcta__title font-display-narrow" data-split>
+      ¿Listos para <em class="font-serif-italic text-orange">jugar</em> en serio?
+    </h2>
+    <p class="bigcta__lead" data-reveal style="--reveal-delay:200ms">
+      Conversemos. Una llamada de 30 minutos basta para entender dónde estás, dónde quieres llegar y cómo GSM puede ayudarte a acortar el camino.
+    </p>
+    <div class="bigcta__row">
+      <a class="btn btn-primary bigcta__btn" data-magnetic data-magnetic-strength="24"
+         href={waLink(WHATSAPP_MESSAGES.athletes)} target="_blank" rel="noopener"
+         aria-label="Soy atleta — hablar con GSM por WhatsApp">Soy atleta →</a>
+      <a class="btn btn-outline bigcta__btn" data-magnetic
+         href={waLink(WHATSAPP_MESSAGES.institucional)} target="_blank" rel="noopener"
+         aria-label="Represento a un club, federación o fundación — hablar con GSM por WhatsApp">Represento a un club / federación →</a>
+    </div>
+    <div class="bigcta__score score-line">
+      <span>15</span><span>30</span><span>40</span><span>GAME</span><span>SET</span><span class="text-orange">MATCH</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bigcta {
+    position: relative;
+    padding-block: clamp(6rem, 14vw, 12rem);
+    overflow: hidden;
+    text-align: center;
+  }
+  .bigcta__bg { position: absolute; inset: 0; z-index: 0; }
+  .bigcta__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.32; filter: contrast(1.05) saturate(0.85); }
+  .bigcta__bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(60% 50% at 50% 50%, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.9) 100%),
+      linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 100%);
+  }
+  .bigcta::before {
+    content: 'GSM';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(18rem, 50vw, 40rem);
+    color: var(--color-bone);
+    opacity: 0.04;
+    letter-spacing: -0.06em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .bigcta__inner { position: relative; z-index: 1; max-width: 60rem; margin: 0 auto; display: grid; gap: 1.4rem; justify-items: center; }
+  .bigcta__title {
+    font-size: clamp(1.7rem, 3.8vw, 3.4rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 18ch;
+  }
+  .bigcta__lead { color: rgba(242,239,232,0.78); font-size: 0.95rem; max-width: 52ch; line-height: 1.55; }
+  .bigcta__row { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0.8rem; }
+  .bigcta__btn { padding: 1.1rem 1.8rem; font-size: 0.85rem; }
+  .bigcta__score { margin-top: 2.5rem; }
+  .bigcta__score span { padding-inline: 0.4rem; }
+</style>

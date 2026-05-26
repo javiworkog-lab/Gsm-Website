@@ -1,0 +1,189 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, waLink, WHATSAPP_MESSAGES } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Inicio', url: SITE.url },
+  { name: 'Contacto', url: `${SITE.url}/contacto` },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '¿Cómo agendo una reunión con GSM?', acceptedAnswer: { '@type': 'Answer', text: 'Escribe a contacto@gsm.cl, completa el formulario en gsm.cl/contacto o escribe por WhatsApp. Respondemos en menos de 24 horas hábiles.' } },
+    { '@type': 'Question', name: '¿Cuál es el horario de atención de GSM?', acceptedAnswer: { '@type': 'Answer', text: 'Lunes a viernes, 09:00 a 19:00 hora de Chile continental (CLT/CLST).' } },
+    { '@type': 'Question', name: '¿GSM atiende fuera de Chile?', acceptedAnswer: { '@type': 'Answer', text: 'Sí. Operamos en Chile y tenemos partners regionales activos en Argentina, Perú, Uruguay y Colombia.' } },
+  ],
+};
+---
+
+<Base
+  title="Contacto — Conversemos"
+  description="Conversa con el equipo GSM. Formulario, WhatsApp, email y dirección oficial en Santiago, Chile."
+  jsonLd={faqLd}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="page-hero bg-ink">
+    <div class="container-x">
+      <p class="eyebrow">Contacto</p>
+      <h1 class="page-hero__title font-display-narrow" data-split>
+        Una conversación de <em class="font-serif-italic text-orange">30 minutos</em> puede cambiar todo.
+      </h1>
+      <p class="page-hero__lead">
+        Escríbenos por el canal que más te acomode. Respondemos en menos de 24 horas hábiles, evaluamos tu caso y coordinamos una primera reunión sin compromiso.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact bg-bone">
+    <div class="container-narrow grid-editorial">
+      <div class="contact__form" style="grid-column: span 7;">
+        <h2 class="font-display-narrow contact__title">Formulario</h2>
+        <p class="contact__sub">Cuéntanos quién eres, qué necesitas y por qué GSM. Mientras más contexto, mejor respuesta.</p>
+        <form class="form" method="POST" action="/api/contact" data-form>
+          <div class="form__row">
+            <label>
+              <span>Tipo de consulta *</span>
+              <select name="topic" required>
+                <option value="">Selecciona…</option>
+                <option value="athlete">Representación de atleta</option>
+                <option value="institution">Sport Performance · Clubes / Federaciones</option>
+                <option value="education">GSM Educación · Colegios / Universidades</option>
+                <option value="funding">Funding & Projects</option>
+                <option value="press">Prensa o medios</option>
+                <option value="other">Otro</option>
+              </select>
+            </label>
+          </div>
+          <div class="form__row form__row--2">
+            <label>
+              <span>Nombre *</span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+          </div>
+          <div class="form__row form__row--2">
+            <label>
+              <span>Teléfono</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+56 9 ..." />
+            </label>
+            <label>
+              <span>Organización</span>
+              <input type="text" name="org" autocomplete="organization" />
+            </label>
+          </div>
+          <div class="form__row">
+            <label>
+              <span>Mensaje *</span>
+              <textarea name="message" rows="6" required></textarea>
+            </label>
+          </div>
+          <label class="form__check">
+            <input type="checkbox" name="terms" required />
+            <span>Autorizo a GSM a contactarme y tratar mis datos conforme a la ley chilena 19.628.</span>
+          </label>
+          <button class="btn btn-primary" data-magnetic type="submit">Enviar mensaje</button>
+          <p class="form__msg" data-form-msg aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="contact__aside" style="grid-column: span 5;">
+        <div class="contact__card">
+          <p class="eyebrow" style="color:var(--color-orange)">Atención directa</p>
+          <a class="contact__big" href={waLink(WHATSAPP_MESSAGES.contacto)} target="_blank" rel="noopener">WhatsApp →</a>
+          <a class="contact__big" href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+          <hr />
+          <p class="contact__addr">
+            <strong>{SITE.address.streetAddress}</strong><br />
+            {SITE.address.addressLocality}, Santiago, Chile<br />
+            <span class="opacity-60">{SITE.contact.hours}</span>
+          </p>
+          <hr />
+          <div class="contact__social">
+            <a href={SITE.social.instagram} target="_blank" rel="noopener">Instagram ↗</a>
+            <a href={SITE.social.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href={SITE.social.youtube} target="_blank" rel="noopener">YouTube ↗</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <style>
+    .page-hero { padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 1rem); }
+    .page-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
+    .page-hero__lead { max-width: 60ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
+
+    .contact { padding-block: var(--spacing-section); color: var(--color-ink); }
+    .contact__title { font-size: clamp(1.25rem, 2vw, 1.7rem); letter-spacing: -0.015em; margin: 0 0 0.4rem; }
+    .contact__sub { color: rgba(10,10,10,0.7); margin: 0 0 2rem; max-width: 52ch; font-size: 0.95rem; line-height: 1.6; }
+
+    .form { display: grid; gap: 1.1rem; }
+    .form__row { display: grid; gap: 0.5rem; }
+    .form__row--2 { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) { .form__row--2 { grid-template-columns: 1fr; } }
+    .form label { display: grid; gap: 0.35rem; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(10,10,10,0.7); }
+    .form input, .form select, .form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-ink);
+      background: var(--color-paper);
+      border: 1px solid rgba(10,10,10,0.18);
+      border-radius: 0;
+      transition: border-color 0.3s;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--color-orange); }
+    .form__check { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; text-transform: none; letter-spacing: 0; }
+    .form__check input { width: auto; }
+    .form button { justify-self: start; }
+    .form__msg { min-height: 1.5rem; font-family: var(--font-mono); font-size: 0.78rem; }
+    .form__msg.is-ok { color: var(--color-court); }
+    .form__msg.is-err { color: #c0392b; }
+
+    .contact__card { padding: 1.8rem 1.5rem; background: var(--color-ink); color: var(--color-bone); display: grid; gap: 0.8rem; position: sticky; top: 6rem; }
+    .contact__big { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s; }
+    .contact__big:hover { color: var(--color-orange); }
+    .contact__card hr { border: 0; border-top: 1px solid var(--color-line); margin: 0.4rem 0; }
+    .contact__addr { font-size: 0.95rem; line-height: 1.5; margin: 0; }
+    .contact__social { display: flex; gap: 1rem; flex-wrap: wrap; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .contact__social a:hover { color: var(--color-orange); }
+    @media (max-width: 800px) { .contact__card { position: static; } }
+  </style>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>('[data-form]');
+    const msg = document.querySelector<HTMLElement>('[data-form-msg]');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!msg) return;
+      msg.className = 'form__msg';
+      msg.textContent = 'Enviando…';
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          msg.classList.add('is-ok');
+          msg.textContent = 'Mensaje recibido. Te contactaremos en menos de 24 horas hábiles.';
+          form.reset();
+        } else {
+          throw new Error('error');
+        }
+      } catch {
+        msg.classList.add('is-err');
+        msg.textContent = 'Hubo un problema. Escríbenos directo por WhatsApp o email.';
+      }
+    });
+  </script>
+</Base>

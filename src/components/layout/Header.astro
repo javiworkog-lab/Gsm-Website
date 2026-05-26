@@ -1,0 +1,184 @@
+---
+import Logo from '../ui/Logo.astro';
+import { NAV, waLink, WHATSAPP_MESSAGES } from '../../lib/site';
+
+const path = Astro.url.pathname;
+---
+
+<header data-header class="gsm-header" aria-label="Navegación principal">
+  <div class="gsm-header__inner container-x">
+    <Logo variant="white" withTagline={false} size={32} />
+
+    <nav class="gsm-header__nav" aria-label="Enlaces principales">
+      {NAV.map((item) => (
+        <a
+          href={item.href}
+          class={path === item.href || path.startsWith(item.href + '/') ? 'is-active' : ''}
+        >
+          <span>{item.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="gsm-header__cta">
+      <a class="btn btn-primary" data-magnetic href={waLink(WHATSAPP_MESSAGES.default)} target="_blank" rel="noopener">
+        <span>Hablemos</span>
+      </a>
+      <button class="gsm-burger" type="button" aria-label="Abrir menú" data-menu-open>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="gsm-menu" data-menu aria-hidden="true">
+  <div class="gsm-menu__inner">
+    <button class="gsm-menu__close" type="button" aria-label="Cerrar menú" data-menu-close>×</button>
+    <nav>
+      <ol>
+        {NAV.map((item, i) => (
+          <li>
+            <a href={item.href}>
+              <span class="menu-num font-mono">0{i + 1}</span>
+              <span class="font-display">{item.label}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+    <div class="gsm-menu__foot">
+      <a href={waLink()} target="_blank" rel="noopener">WhatsApp →</a>
+      <a href="mailto:contacto@gsm.cl">contacto@gsm.cl</a>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .gsm-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 80;
+    padding-block: 1.1rem;
+    transition: transform 0.4s var(--ease-out-expo), background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .gsm-header.is-scrolled {
+    background: rgba(10, 10, 10, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom-color: var(--color-line);
+    padding-block: 0.65rem;
+  }
+  .gsm-header.is-hidden { transform: translateY(-100%); }
+  .gsm-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .gsm-header__nav {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+  }
+  .gsm-header__nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.92rem;
+    letter-spacing: -0.01em;
+    color: rgba(242,239,232,0.78);
+    transition: color 0.25s;
+  }
+  .gsm-header__nav a:hover { color: var(--color-bone); }
+  .gsm-header__nav a.is-active { color: var(--color-orange); }
+  .gsm-header__cta { display: flex; align-items: center; gap: 0.75rem; }
+  .gsm-burger {
+    display: none;
+    width: 44px; height: 44px;
+    background: transparent; border: 1px solid var(--color-line);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    align-items: center; justify-content: center;
+    flex-direction: column; gap: 5px;
+  }
+  .gsm-burger span { width: 18px; height: 1.5px; background: var(--color-bone); transition: transform 0.3s; }
+
+  @media (max-width: 900px) {
+    .gsm-header__nav { display: none; }
+    .gsm-header__cta .btn { display: none; }
+    .gsm-burger { display: inline-flex; }
+  }
+
+  /* Menu overlay */
+  .gsm-menu {
+    position: fixed; inset: 0;
+    background: var(--color-ink);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s var(--ease-out-expo);
+  }
+  .gsm-menu.is-open { opacity: 1; pointer-events: auto; }
+  .gsm-menu__inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.6rem var(--spacing-gutter) 2.5rem;
+  }
+  .gsm-menu__close {
+    align-self: flex-end;
+    font-size: 2.2rem;
+    background: transparent;
+    border: 0;
+    color: var(--color-bone);
+    cursor: pointer;
+    line-height: 1;
+  }
+  .gsm-menu ol {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .gsm-menu li a {
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: clamp(2.4rem, 8vw, 4.5rem);
+    line-height: 1;
+    color: var(--color-bone);
+    transition: color 0.3s, padding-left 0.4s var(--ease-out-expo);
+  }
+  .gsm-menu li a:hover { color: var(--color-orange); padding-left: 0.5rem; }
+  .gsm-menu .menu-num { font-size: 0.85rem; color: var(--color-orange); letter-spacing: 0.2em; }
+  .gsm-menu__foot {
+    display: flex; justify-content: space-between; gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-bone);
+    opacity: 0.7;
+  }
+</style>
+
+<script>
+  const open = document.querySelector('[data-menu-open]');
+  const close = document.querySelector('[data-menu-close]');
+  const menu = document.querySelector('[data-menu]');
+  const toggle = (state: boolean) => {
+    if (!menu) return;
+    menu.classList.toggle('is-open', state);
+    menu.setAttribute('aria-hidden', state ? 'false' : 'true');
+    document.body.style.overflow = state ? 'hidden' : '';
+  };
+  open?.addEventListener('click', () => toggle(true));
+  close?.addEventListener('click', () => toggle(false));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+</script>

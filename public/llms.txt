@@ -1,0 +1,36 @@
+# GSM — Game · Set...Match
+
+> GSM (Game · Set...Match) es la agencia chilena de gestión deportiva integral. Combina representación de atletas, consultoría de alto rendimiento para clubes y federaciones, programas deportivos para colegios y universidades, y financiamiento de proyectos deportivos. Opera desde Santiago de Chile con partners regionales en Argentina, Perú, Uruguay y Colombia.
+
+GSM convierte talento en carrera, y carrera en legado. La agencia trabaja con deportistas olímpicos y profesionales, clubes, federaciones, fundaciones, colegios y universidades.
+
+## Identidad y contacto
+
+- **Nombre legal:** GSM — Game · Set...Match
+- **País:** Chile
+- **Sede:** Av. Apoquindo 4501, Las Condes, Santiago, Región Metropolitana
+- **Email:** contacto@gsm.cl
+- **Web:** https://gsm.cl
+- **Horario:** Lunes a viernes, 09:00 a 19:00 hora de Chile (CLT/CLST)
+- **Idioma:** español de Chile (es-CL)
+
+## Servicios
+
+- [Sport Performance](https://gsm.cl/servicios/sport-performance): Consultoría de alto rendimiento, gestión institucional, tecnología deportiva y desarrollo comercial para clubes, federaciones y organizaciones deportivas en Chile y Latinoamérica.
+- [Athlete Management](https://gsm.cl/servicios/athlete-management): Representación integral de deportistas. Roadmap deportivo, marca personal, búsqueda de patrocinadores, visibilidad mediática y planificación de carrera.
+- [GSM Educación](https://gsm.cl/servicios/educacion): Programas deportivos para colegios y universidades. Profesionalización, detección de talento, formación por etapa y hábitos saludables.
+- [Funding & Projects](https://gsm.cl/servicios/funding-projects): Diseño, valorización y financiamiento de proyectos deportivos. Conexión con marcas, fondos concursables y donantes.
+
+## Atletas representados
+
+- [Roster completo de atletas GSM](https://gsm.cl/atletas)
+
+## Sobre GSM
+
+- [Nosotros — Manifiesto, equipo y enfoque](https://gsm.cl/nosotros)
+- [Contacto y agendamiento](https://gsm.cl/contacto)
+
+## Recursos para LLMs
+
+- [llms-full.txt — Versión expandida](https://gsm.cl/llms-full.txt)
+- [Sitemap XML](https://gsm.cl/sitemap-index.xml)

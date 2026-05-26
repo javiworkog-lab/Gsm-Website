@@ -1,0 +1,55 @@
+/* GSM Design Tokens — paleta brand book + sistema editorial */
+@theme {
+  /* Colores brand */
+  --color-ink: #0a0a0a;
+  --color-ink-2: #141414;
+  --color-bone: #f2efe8;
+  --color-bone-2: #e8e3d6;
+  --color-paper: #ffffff;
+  --color-court: #114531;
+  --color-court-2: #0a2a1e;
+  --color-court-3: #1a5d44;
+  --color-orange: #c66033;
+  --color-orange-2: #e26a2c;
+  --color-orange-3: #a14d27;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-line-ink: rgba(10, 10, 10, 0.14);
+
+  /* Type families — SaaS / modern editorial */
+  --font-display: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces', 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Type-scale (fluid clamp) */
+  --text-xs: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
+  --text-sm: clamp(0.82rem, 0.78rem + 0.18vw, 0.92rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --text-lg: clamp(1.1rem, 1rem + 0.4vw, 1.32rem);
+  --text-xl: clamp(1.32rem, 1.1rem + 0.7vw, 1.7rem);
+  --text-2xl: clamp(1.65rem, 1.3rem + 1vw, 2.25rem);
+  --text-3xl: clamp(2.1rem, 1.55rem + 1.7vw, 3.1rem);
+  --text-4xl: clamp(2.7rem, 1.85rem + 2.6vw, 4.4rem);
+  --text-5xl: clamp(3.4rem, 2.2rem + 4vw, 6rem);
+  --text-6xl: clamp(4.4rem, 2.6rem + 6vw, 8.5rem);
+  --text-display: clamp(5rem, 3rem + 8vw, 12rem);
+
+  /* Spacing extras */
+  --spacing-section: clamp(4rem, 3rem + 4vw, 8rem);
+  --spacing-gutter: clamp(1.25rem, 0.75rem + 1.5vw, 2.5rem);
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Containers */
+  --container-max: 1480px;
+  --container-narrow: 1180px;
+
+  /* Radii (mostly sharp, selective curves) */
+  --radius-pill: 999px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+}

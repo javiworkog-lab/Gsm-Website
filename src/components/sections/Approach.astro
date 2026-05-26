@@ -1,0 +1,157 @@
+---
+const steps = [
+  {
+    num: '01',
+    name: 'Diagnóstico',
+    title: 'Vemos antes de hablar.',
+    body: 'Auditamos talento, contexto, recursos y oportunidades. Un mapa real, sin humo, antes de prometer nada.',
+    metric: '14 dimensiones',
+  },
+  {
+    num: '02',
+    name: 'Estrategia',
+    title: 'Diseñamos la ruta.',
+    body: 'Plan deportivo con objetivos medibles, presupuesto, calendarios y partners. Sin promesas vacías ni atajos.',
+    metric: '6 horizontes',
+  },
+  {
+    num: '03',
+    name: 'Implementación',
+    title: 'Activamos el equipo.',
+    body: 'Convocamos profesionales, sponsors y aliados. GSM articula. El atleta entrena. El club ejecuta.',
+    metric: '40+ partners',
+  },
+  {
+    num: '04',
+    name: 'Seguimiento',
+    title: 'Medimos cada paso.',
+    body: 'Indicadores deportivos, comerciales y educacionales. Reportería transparente, conversaciones honestas.',
+    metric: 'KPIs vivos',
+  },
+  {
+    num: '05',
+    name: 'Resultados',
+    title: 'Construimos legado.',
+    body: 'Talento que rinde, carreras que duran, instituciones que escalan, proyectos que se financian.',
+    metric: '+15 años',
+  },
+];
+---
+
+<section class="approach bg-bone" id="metodo" data-pin-horizontal>
+  <div class="approach__inner">
+    <header class="approach__head container-narrow">
+      <span class="eyebrow">Método GSM · 05 pasos</span>
+      <h2 class="approach__title font-display-narrow">
+        Un proceso que <em class="font-serif-italic text-orange">no se salta etapas</em>.
+      </h2>
+    </header>
+
+    <div class="approach__track" data-pin-track>
+      {steps.map((step) => (
+        <article class="approach__step">
+          <div class="approach__num font-display">{step.num}</div>
+          <h3 class="approach__step-name font-mono">{step.name}</h3>
+          <p class="approach__step-title font-display-narrow">{step.title}</p>
+          <p class="approach__body">{step.body}</p>
+          <div class="approach__metric">
+            <span class="font-mono">{step.metric}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .approach {
+    color: var(--color-ink);
+    padding-block: 0;
+    overflow: hidden;
+  }
+  .approach__inner {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(3rem, 6vw, 6rem);
+    position: relative;
+  }
+  .approach__head {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    display: grid;
+    gap: 0.9rem;
+    max-width: 52rem;
+  }
+  .approach__head .eyebrow { color: var(--color-orange); }
+  .approach__title {
+    font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 26ch;
+  }
+  .approach__track {
+    display: flex;
+    gap: 1rem;
+    padding-inline: var(--spacing-gutter);
+    will-change: transform;
+  }
+  .approach__step {
+    flex: 0 0 min(60vw, 38rem);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 2.4rem 2rem 2rem;
+    border: 1px solid rgba(10,10,10,0.08);
+    display: grid;
+    gap: 0.8rem;
+    position: relative;
+    min-height: 30rem;
+    align-content: start;
+  }
+  .approach__step:nth-child(odd) { background: var(--color-ink); color: var(--color-bone); border-color: transparent; }
+  .approach__step:nth-child(odd) .approach__step-name { color: var(--color-orange); }
+  .approach__num {
+    font-size: clamp(2.6rem, 4.2vw, 3.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--color-orange);
+    margin-bottom: 0.2rem;
+  }
+  .approach__step-name {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-court);
+  }
+  .approach__step-title {
+    font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0.4rem 0;
+  }
+  .approach__body {
+    max-width: 38ch;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin: 0;
+  }
+  .approach__metric {
+    margin-top: auto;
+    align-self: flex-end;
+    padding-top: 1.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  @media (max-width: 800px) {
+    .approach__inner { height: auto; }
+    .approach__track {
+      flex-direction: column;
+      transform: none !important;
+    }
+    .approach__step { flex: 1 1 auto; min-height: 0; padding: 1.8rem 1.4rem; }
+  }
+</style>

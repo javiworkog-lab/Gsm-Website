@@ -1,0 +1,103 @@
+---
+import { SITE, SERVICES } from '../../lib/site';
+
+interface Props {
+  type?: 'home' | 'service' | 'person' | 'page';
+  data?: any;
+  breadcrumbs?: { name: string; url: string }[];
+}
+const { type = 'page', data, breadcrumbs } = Astro.props;
+
+const orgGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['Organization', 'LocalBusiness', 'SportsActivityLocation'],
+      '@id': `${SITE.url}/#organization`,
+      name: 'GSM — Game · Set...Match',
+      alternateName: ['GSM', 'Game Set Match', 'GSM Chile'],
+      url: SITE.url,
+      logo: `${SITE.url}/og-image.jpg`,
+      image: `${SITE.url}/og-image.jpg`,
+      description: SITE.description,
+      slogan: 'Game · Set...Match',
+      foundingLocation: 'Santiago, Chile',
+      areaServed: [
+        { '@type': 'Country', name: 'Chile' },
+        { '@type': 'AdministrativeArea', name: 'Latinoamérica' },
+      ],
+      address: { '@type': 'PostalAddress', ...SITE.address },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer service',
+          telephone: SITE.contact.phone,
+          email: SITE.contact.email,
+          availableLanguage: ['es-CL', 'es', 'en'],
+          areaServed: 'CL',
+        },
+      ],
+      knowsAbout: [
+        'representación deportiva',
+        'gestión de atletas',
+        'alto rendimiento deportivo',
+        'sport performance',
+        'athlete management',
+        'consultoría deportiva escolar',
+        'financiamiento de proyectos deportivos',
+        'patrocinadores deportivos',
+        'scouting deportivo',
+        'marketing deportivo',
+      ],
+      sameAs: Object.values(SITE.social),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE.url}/#website`,
+      url: SITE.url,
+      name: SITE.full,
+      description: SITE.description,
+      publisher: { '@id': `${SITE.url}/#organization` },
+      inLanguage: 'es-CL',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: { '@type': 'EntryPoint', urlTemplate: `${SITE.url}/?q={search_term_string}` },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    ...SERVICES.map((s) => ({
+      '@type': 'Service',
+      '@id': `${SITE.url}/servicios/${s.slug}#service`,
+      name: s.title,
+      serviceType: s.subtitle,
+      description: s.summary,
+      provider: { '@id': `${SITE.url}/#organization` },
+      areaServed: { '@type': 'Country', name: 'Chile' },
+      url: `${SITE.url}/servicios/${s.slug}`,
+    })),
+  ],
+};
+
+const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((b, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: b.name,
+        item: b.url,
+      })),
+    }
+  : null;
+
+const customLd = data ?? null;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(orgGraph)} />
+{breadcrumbLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+)}
+{customLd && (
+  <script type="application/ld+json" set:html={JSON.stringify(customLd)} />
+)}

@@ -1,0 +1,88 @@
+---
+import Marquee from '../ui/Marquee.astro';
+---
+
+<section class="manifesto bg-bone">
+  <div class="manifesto__marquee">
+    <Marquee items={['Disciplina', 'Estrategia', 'Rendimiento', 'Talento', 'Gestión', 'Carrera', 'Legado', 'Precisión']} duration={42} />
+    <Marquee items={['Sport Performance', 'Athlete Management', 'Educación', 'Funding', 'Scouting', 'Sponsors', 'Branding', 'Resultados']} duration={48} reverse />
+  </div>
+
+  <div class="container-narrow manifesto__body">
+    <p class="eyebrow" data-reveal>Manifiesto</p>
+    <h2 class="manifesto__title font-serif-italic" data-split>
+      Convertimos talento en carrera,<br />y carrera en <span class="manifesto__highlight">legado</span>.
+    </h2>
+    <div class="manifesto__cols">
+      <div data-reveal style="--reveal-delay:120ms">
+        <p class="manifesto__num font-mono">01</p>
+        <p>
+          El deporte no se improvisa. Se diagnostica, se planifica, se ejecuta y se mide. Lo demás es voluntarismo.
+        </p>
+      </div>
+      <div data-reveal style="--reveal-delay:240ms">
+        <p class="manifesto__num font-mono">02</p>
+        <p>
+          El talento solo es punto de partida. Lo que define la carrera es la estructura que lo sostiene en el tiempo.
+        </p>
+      </div>
+      <div data-reveal style="--reveal-delay:360ms">
+        <p class="manifesto__num font-mono">03</p>
+        <p>
+          Ningún atleta, club o federación llega solo. Detrás siempre hay un equipo que decide, cuida y proyecta. Por eso GSM trabaja en dos frentes: con el deportista y con la institución que lo sostiene.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    position: relative;
+    padding-block: var(--spacing-section);
+    overflow: hidden;
+  }
+  .manifesto__marquee {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding-block: 0 clamp(2.5rem, 6vw, 5rem);
+    color: var(--color-ink);
+  }
+  .manifesto__body {
+    display: grid;
+    gap: 2rem;
+  }
+  .manifesto__title {
+    font-size: clamp(1.6rem, 3.2vw, 2.8rem);
+    line-height: 1.15;
+    margin: 0.4rem 0 2rem;
+    color: var(--color-ink);
+  }
+  .manifesto__highlight {
+    background: linear-gradient(180deg, transparent 62%, var(--color-orange) 62%, var(--color-orange) 92%, transparent 92%);
+    padding: 0 0.1em;
+  }
+  .manifesto__cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-top: 1px solid var(--color-line-ink);
+    padding-top: 2rem;
+  }
+  @media (max-width: 800px) {
+    .manifesto__cols { grid-template-columns: 1fr; gap: 1.6rem; }
+  }
+  .manifesto__num {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--color-orange);
+    margin-bottom: 0.45rem;
+  }
+  .manifesto__cols p:not(.manifesto__num) {
+    color: var(--color-ink);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 34ch;
+  }
+</style>

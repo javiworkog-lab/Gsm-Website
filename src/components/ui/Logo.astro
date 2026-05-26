@@ -1,0 +1,23 @@
+---
+interface Props {
+  variant?: 'orange' | 'white' | 'green' | 'mono';
+  withTagline?: boolean;
+  class?: string;
+  size?: number;
+}
+const { variant = 'white', withTagline = true, class: cls = '', size = 56 } = Astro.props;
+const colorMap = { orange: '#C66033', white: '#F2EFE8', green: '#114531', mono: 'currentColor' };
+const mark = colorMap[variant];
+const tag = variant === 'orange' ? '#114531' : (variant === 'white' ? '#F2EFE8' : mark);
+---
+
+<a href="/" aria-label="GSM — Game Set Match — Inicio" class={`gsm-logo inline-flex items-baseline gap-2 ${cls}`}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90" width={size * 2.4} height={size} aria-hidden="true" style="display:block">
+    <g fill={mark} font-family="ui-sans-serif, system-ui" font-weight="900" font-style="italic" font-size="80" letter-spacing="-4">
+      <text x="0" y="68" transform="skewX(-12)" style="font-stretch: condensed">GSM</text>
+    </g>
+    {withTagline && (
+      <text x="6" y="86" fill={tag} font-family="ui-monospace, monospace" font-size="9" font-weight="700" letter-spacing="2.5" style="text-transform:uppercase">GAME · SET...MATCH</text>
+    )}
+  </svg>
+</a>

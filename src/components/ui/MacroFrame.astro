@@ -1,0 +1,13 @@
+---
+interface Props {
+  letter?: 'G' | 'S' | 'M';
+  opacity?: number;
+  color?: string;
+  rotate?: number;
+}
+const { letter = 'M', opacity = 0.045, color = 'currentColor', rotate = -8 } = Astro.props;
+---
+
+<div class="macro-frame" aria-hidden="true" style={`opacity:${opacity}; color:${color}; transform:rotate(${rotate}deg)`}>
+  <span style="font-family:var(--font-display); font-weight:900; font-style:italic; font-size:90vmin; line-height:0.8; letter-spacing:-0.05em">{letter}</span>
+</div>

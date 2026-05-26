@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SERVICES, SITE } from '../../lib/site';
+
+const breadcrumbs = [
+  { name: 'Inicio', url: SITE.url },
+  { name: 'Servicios', url: `${SITE.url}/servicios` },
+];
+
+const macros = ['G', 'S', 'M', 'G'];
+---
+
+<Base
+  title="Servicios — 4 áreas de gestión deportiva integral"
+  description="Conoce los cuatro servicios de GSM: Sport Performance para instituciones, Athlete Management para deportistas, Educación para colegios y Funding & Projects para proyectos deportivos en Chile y LATAM."
+  breadcrumbs={breadcrumbs}
+>
+  <section class="page-hero bg-ink">
+    <div class="container-x">
+      <p class="eyebrow">Servicios · 04 áreas</p>
+      <h1 class="page-hero__title font-display-narrow" data-split>
+        Cuatro servicios. <em class="font-serif-italic text-orange">Una sola visión</em> del deporte.
+      </h1>
+      <p class="page-hero__lead">
+        Hemos diseñado nuestra oferta para cubrir las cuatro grandes necesidades del ecosistema deportivo: instituciones, deportistas, educación y proyectos. Cada servicio tiene metodología propia, métricas claras y un equipo dedicado.
+      </p>
+    </div>
+  </section>
+
+  <section class="servicios-list bg-ink">
+    <div class="container-x">
+      {SERVICES.map((s, i) => (
+        <a class="serv-row" href={`/servicios/${s.slug}`} data-reveal style={`--reveal-delay:${i * 100}ms`}>
+          <span class="serv-row__macro" aria-hidden="true">{macros[i]}</span>
+          <div class="serv-row__num font-display-narrow">{s.code}</div>
+          <div class="serv-row__main">
+            <p class="font-mono serv-row__eye">{s.eyebrow}</p>
+            <h2 class="serv-row__title font-display-narrow">{s.title}</h2>
+            <p class="serv-row__sub font-mono">{s.subtitle}</p>
+            <p class="serv-row__body">{s.summary}</p>
+          </div>
+          <div class="serv-row__arrow">→</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .page-hero { padding-block: calc(var(--spacing-section) + 4rem) calc(var(--spacing-section) - 2rem); }
+    .page-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
+    .page-hero__lead { max-width: 60ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
+
+    .servicios-list { padding-bottom: var(--spacing-section); }
+    .serv-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.4rem 0;
+      border-top: 1px solid var(--color-line);
+      overflow: hidden;
+      transition: padding-left 0.5s var(--ease-out-expo), color 0.4s;
+    }
+    .serv-row:last-child { border-bottom: 1px solid var(--color-line); }
+    .serv-row:hover { padding-left: 1.5rem; }
+    .serv-row:hover .serv-row__macro { color: var(--color-orange); transform: translate(40%, 0) rotate(0); opacity: 0.13; }
+    .serv-row:hover .serv-row__arrow { transform: translateX(8px); color: var(--color-orange); }
+    .serv-row__macro {
+      position: absolute;
+      right: 6%;
+      top: 50%;
+      transform: translate(50%, -50%) rotate(-6deg);
+      font-family: var(--font-display); font-weight: 900; font-style: italic;
+      font-size: 28rem; line-height: 0.8; letter-spacing: -0.05em;
+      color: var(--color-bone);
+      opacity: 0.04;
+      pointer-events: none;
+      transition: transform 0.7s var(--ease-out-expo), color 0.4s, opacity 0.4s;
+    }
+    .serv-row__num { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 0.95; letter-spacing: -0.025em; color: var(--color-orange); }
+    .serv-row__main { display: grid; gap: 0.3rem; max-width: 56ch; }
+    .serv-row__eye { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.65; margin: 0; }
+    .serv-row__title { font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.2; letter-spacing: -0.015em; margin: 0; }
+    .serv-row__sub { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; margin: 0; }
+    .serv-row__body { margin: 0.5rem 0 0; color: rgba(242,239,232,0.8); font-size: 0.9rem; line-height: 1.6; }
+    .serv-row__arrow { font-size: 2rem; color: var(--color-bone); transition: transform 0.4s var(--ease-out-expo), color 0.4s; }
+    @media (max-width: 700px) {
+      .serv-row { grid-template-columns: auto 1fr; }
+      .serv-row__arrow { display: none; }
+    }
+  </style>
+</Base>

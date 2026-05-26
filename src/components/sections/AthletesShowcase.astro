@@ -1,0 +1,115 @@
+---
+const athletes = [
+  { name: 'Camila Rojas',     sport: 'Tenis · WTA',                slug: 'camila-rojas',     img: '/images/atletas/camila-rojas.jpg',     span: 'a' },
+  { name: 'Tomás Aguilar',    sport: 'Tenis · ATP Challenger',     slug: 'tomas-aguilar',    img: '/images/atletas/tomas-aguilar.jpg',    span: 'b' },
+  { name: 'Florencia Ibarra', sport: 'Hockey césped · mediocampo', slug: 'florencia-ibarra', img: '/images/atletas/florencia-ibarra.jpg', span: 'c' },
+  { name: 'Matías Pereira',   sport: 'Rugby · flanker',            slug: 'matias-pereira',   img: '/images/atletas/matias-pereira.jpg',   span: 'd' },
+  { name: 'Diego Cárcamo',    sport: 'Fútbol · mediocampista',     slug: 'diego-carcamo',    img: '/images/atletas/diego-carcamo.jpg',    span: 'e' },
+  { name: 'Valentina Soto',   sport: 'Fútbol · lateral derecha',   slug: 'valentina-soto',   img: '/images/atletas/valentina-soto.jpg',   span: 'f' },
+];
+---
+
+<section class="athletes bg-ink" id="atletas">
+  <div class="container-x">
+    <header class="athletes__head">
+      <span class="eyebrow" data-reveal>Atletas representados</span>
+      <h2 class="athletes__title font-display-narrow" data-split>
+        Talento <em class="font-serif-italic text-orange">en obra</em>.
+      </h2>
+      <p class="athletes__lead" data-reveal style="--reveal-delay:200ms">
+        Una selección de quienes hoy entrenan, compiten y crecen con la estructura de GSM detrás. Fútbol, tenis, atletismo, ciclismo, deportes de invierno y más.
+      </p>
+    </header>
+  </div>
+
+  <div class="athletes__grid">
+    {athletes.map((a, i) => (
+      <a class={`athlete-card athlete-card--${a.span}`} href={`/atletas/${a.slug}`} data-parallax={i % 2 === 0 ? '0.15' : '0.25'} data-reveal>
+        <div class="athlete-card__img">
+          <img src={a.img} alt={`Retrato de ${a.name}, ${a.sport}, atleta representado por GSM`} loading="lazy" decoding="async" />
+        </div>
+        <div class="athlete-card__meta">
+          <span class="font-mono">0{i + 1}</span>
+          <div>
+            <p class="athlete-card__name font-display-narrow">{a.name}</p>
+            <p class="athlete-card__sport font-mono">{a.sport}</p>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <div class="container-x athletes__cta">
+    <a class="btn btn-outline" data-magnetic href="/atletas">Ver todos los atletas →</a>
+  </div>
+</section>
+
+<style>
+  .athletes { padding-block: var(--spacing-section); overflow: hidden; }
+  .athletes__head {
+    max-width: 52rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    display: grid;
+    gap: 0.9rem;
+  }
+  .athletes__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .athletes__lead { max-width: 52ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.55; }
+
+  .athletes__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(78px, auto);
+    gap: 0.65rem;
+    padding-inline: var(--spacing-gutter);
+    margin-bottom: 3rem;
+    max-width: 65%;
+    margin-inline: auto;
+  }
+  .athlete-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-court-2);
+    color: var(--color-bone);
+  }
+  .athlete-card--a { grid-column: 1 / span 5; grid-row: span 6; aspect-ratio: 4/5; }
+  .athlete-card--b { grid-column: 6 / span 4; grid-row: span 4; aspect-ratio: 4/5; margin-top: 3rem; }
+  .athlete-card--c { grid-column: 10 / span 3; grid-row: span 5; aspect-ratio: 3/5; }
+  .athlete-card--d { grid-column: 1 / span 4; grid-row: span 5; aspect-ratio: 4/5; }
+  .athlete-card--e { grid-column: 5 / span 5; grid-row: span 6; aspect-ratio: 1/1; margin-top: -2rem; }
+  .athlete-card--f { grid-column: 10 / span 3; grid-row: span 5; aspect-ratio: 3/4; }
+  @media (max-width: 900px) {
+    .athletes__grid { grid-template-columns: repeat(6, 1fr); max-width: 100%; }
+    .athlete-card--a { grid-column: 1 / span 4; aspect-ratio: 3/4; }
+    .athlete-card--b { grid-column: 5 / span 2; aspect-ratio: 2/3; margin-top: 0; }
+    .athlete-card--c { grid-column: 1 / span 3; aspect-ratio: 1/1; }
+    .athlete-card--d { grid-column: 4 / span 3; aspect-ratio: 1/1; }
+    .athlete-card--e { grid-column: 1 / span 4; aspect-ratio: 4/3; margin-top: 0; }
+    .athlete-card--f { grid-column: 5 / span 2; aspect-ratio: 2/3; }
+  }
+  @media (max-width: 540px) {
+    .athletes__grid { grid-template-columns: 1fr 1fr; }
+    .athlete-card { grid-column: span 1 !important; grid-row: auto !important; aspect-ratio: 4/5 !important; margin-top: 0 !important; }
+  }
+  .athlete-card__img { position: absolute; inset: 0; }
+  .athlete-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-out-expo), filter 0.6s; filter: contrast(1.02) saturate(0.95); }
+  .athlete-card:hover .athlete-card__img img { transform: scale(1.05); filter: contrast(1.05) saturate(1.05); }
+  .athlete-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0) 40%, rgba(10,10,10,0.85) 100%);
+  }
+  .athlete-card__meta {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.8rem;
+    padding: 1rem 1.1rem;
+  }
+  .athlete-card__meta .font-mono { font-size: 0.7rem; opacity: 0.8; padding: 0.2rem 0.4rem; border: 1px solid var(--color-line); }
+  .athlete-card__name { font-size: clamp(0.95rem, 1.1vw, 1.2rem); margin: 0; line-height: 1.1; letter-spacing: -0.015em; }
+  .athlete-card__sport { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin: 0.3rem 0 0; }
+  .athletes__cta { display: flex; justify-content: center; margin-top: 2rem; }
+</style>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  items: string[];
+  duration?: number;
+  reverse?: boolean;
+  separator?: string;
+  className?: string;
+}
+const { items, duration = 38, reverse = false, separator = '·', className = '' } = Astro.props;
+const repeat = [...items, ...items, ...items, ...items];
+---
+
+<div class={`marquee ${reverse ? 'marquee--reverse' : ''} ${className}`} role="presentation">
+  <div class="marquee__track" data-duration={duration}>
+    {repeat.map((item) => (
+      <span class="marquee__item">{item}<span class="marquee__sep" aria-hidden="true">{separator}</span></span>
+    ))}
+  </div>
+</div>
+
+<style is:global>
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-inline: 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2.6rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .marquee__sep { color: var(--color-orange); opacity: 0.8; }
+</style>

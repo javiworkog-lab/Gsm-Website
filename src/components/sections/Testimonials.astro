@@ -1,0 +1,157 @@
+---
+const testimonials = [
+  {
+    quote: 'GSM nos ayudó a profesionalizar el deporte en nuestro colegio. Pasamos de un programa improvisado a un sistema con metas claras y resultados visibles.',
+    name: 'Director Deportivo',
+    role: 'Colegio Internacional · Santiago',
+    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    quote: 'Lo di todo, hasta el último minuto, por eso salí victorioso. Con GSM detrás todo es más fácil: ellos se preocupan, yo entreno.',
+    name: 'Atleta · 800m',
+    role: 'Selección nacional',
+    img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    quote: 'Pensábamos que conseguir sponsors era cuestión de suerte. Con GSM entendimos que es metodología y red. En seis meses cerramos tres acuerdos.',
+    name: 'Presidente',
+    role: 'Club deportivo · Región del Biobío',
+    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    quote: 'Buscábamos ordenar la representación de nuestros atletas. GSM lo convirtió en una operación seria, con datos, calendario y resultados.',
+    name: 'Federación Deportiva',
+    role: 'LATAM',
+    img: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    quote: 'Las charlas de GSM en nuestra universidad reorientaron cómo entendemos el deporte universitario. Hoy tenemos un programa de detección de talento real.',
+    name: 'Vicerrectora',
+    role: 'Universidad chilena',
+    img: 'https://images.unsplash.com/photo-1502519144081-acca18599776?auto=format&fit=crop&w=400&q=80',
+  },
+];
+---
+
+<section class="testimonials bg-bone" id="testimonios">
+  <div class="container-x">
+    <header class="testimonials__head">
+      <span class="eyebrow" data-reveal>Testimonios</span>
+      <h2 class="testimonials__title font-display-narrow" data-split>
+        Lo que dicen <em class="font-serif-italic text-orange">quienes ya trabajan</em> con GSM.
+      </h2>
+    </header>
+  </div>
+
+  <div class="testimonials__row">
+    <div class="testimonials__track" style="--dir:1">
+      {[...testimonials, ...testimonials].map((t, i) => (
+        <article class="testimonial">
+          <div class="testimonial__quote">
+            <span class="testimonial__qmark">"</span>
+            {t.quote}
+          </div>
+          <div class="testimonial__meta">
+            <img src={t.img} alt={`Foto referencial · ${t.name}`} loading="lazy" />
+            <div>
+              <p class="testimonial__name">{t.name}</p>
+              <p class="testimonial__role font-mono">{t.role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="testimonials__row testimonials__row--reverse">
+    <div class="testimonials__track" style="--dir:-1">
+      {[...testimonials.slice().reverse(), ...testimonials.slice().reverse()].map((t) => (
+        <article class="testimonial">
+          <div class="testimonial__quote">
+            <span class="testimonial__qmark">"</span>
+            {t.quote}
+          </div>
+          <div class="testimonial__meta">
+            <img src={t.img} alt={`Foto referencial · ${t.name}`} loading="lazy" />
+            <div>
+              <p class="testimonial__name">{t.name}</p>
+              <p class="testimonial__role font-mono">{t.role}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding-block: var(--spacing-section);
+    overflow: hidden;
+    color: var(--color-ink);
+  }
+  .testimonials__head {
+    max-width: 52rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    display: grid;
+    gap: 0.9rem;
+  }
+  .testimonials__title {
+    font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .testimonials__row {
+    display: flex;
+    overflow: hidden;
+    padding-block: 0.6rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .testimonials__track {
+    display: flex;
+    gap: 1.25rem;
+    animation: marquee 60s linear infinite;
+    animation-direction: normal;
+    min-width: max-content;
+  }
+  .testimonials__row--reverse .testimonials__track { animation-direction: reverse; animation-duration: 80s; }
+  .testimonials__row:hover .testimonials__track { animation-play-state: paused; }
+
+  .testimonial {
+    flex: 0 0 28rem;
+    background: var(--color-paper);
+    border: 1px solid rgba(10,10,10,0.08);
+    padding: 1.6rem 1.6rem 1.4rem;
+    display: grid;
+    gap: 1.2rem;
+    box-shadow: 0 1px 0 rgba(10,10,10,0.04);
+  }
+  .testimonial__quote {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.45;
+    font-style: italic;
+    position: relative;
+  }
+  .testimonial__qmark {
+    font-family: var(--font-serif);
+    color: var(--color-orange);
+    font-size: 2.6rem;
+    line-height: 0;
+    margin-right: 0.25rem;
+    vertical-align: -0.55rem;
+  }
+  .testimonial__meta {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding-top: 1rem; border-top: 1px solid rgba(10,10,10,0.08);
+  }
+  .testimonial__meta img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; filter: grayscale(0.4); }
+  .testimonial__name { margin: 0; font-weight: 700; font-size: 0.95rem; }
+  .testimonial__role { margin: 0; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.65; }
+
+  @media (max-width: 600px) {
+    .testimonial { flex-basis: 20rem; }
+  }
+</style>

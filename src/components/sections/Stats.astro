@@ -1,0 +1,118 @@
+---
+import { STATS } from '../../lib/site';
+---
+
+<section class="stats bg-court-deep" id="impacto">
+  <div class="stats__bg" aria-hidden="true">
+    <img src="/images/detail/stadium-night.jpg" alt="" loading="lazy" decoding="async" />
+  </div>
+  <div class="container-x stats__container">
+    <header class="stats__head">
+      <span class="eyebrow" data-reveal>Cómo trabajamos · Chile</span>
+      <h2 class="stats__title font-display-narrow" data-split>
+        Una propuesta integral, <em class="font-serif-italic text-orange">hecha en Chile</em>.
+      </h2>
+    </header>
+
+    <div class="stats__grid">
+      {STATS.map((s, i) => (
+        <div class="stat" data-reveal style={`--reveal-delay:${i * 110}ms`}>
+          <p class="stat__num font-display-narrow">
+            <span data-counter={s.value} data-suffix={s.suffix}>0{s.suffix}</span>
+          </p>
+          <p class="stat__label">{s.label}</p>
+          <p class="stat__sub font-mono">{s.sub}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="stats__map" aria-hidden="true">
+      <!-- Mapa estilizado SVG de Chile (simplificado) -->
+      <svg viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" class="stats__map-svg">
+        <defs>
+          <radialGradient id="dotG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C66033" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#C66033" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <path
+          d="M180,30 Q200,60 195,100 Q190,140 200,180 Q210,220 205,260 Q200,300 210,340 Q215,380 205,420 Q200,460 210,500 Q220,540 215,580 Q210,620 200,660 Q195,680 190,700 Q175,680 170,650 Q165,620 170,580 Q175,540 165,500 Q160,460 170,420 Q175,380 165,340 Q160,300 170,260 Q175,220 165,180 Q160,140 170,100 Q175,60 180,30 Z"
+          fill="rgba(242,239,232,0.05)"
+          stroke="rgba(242,239,232,0.18)"
+          stroke-width="1"
+        />
+        <!-- pulse dots -->
+        <g>
+          <circle cx="185" cy="330" r="3" fill="#C66033"><animate attributeName="r" values="3;9;3" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.2;1" dur="2.2s" repeatCount="indefinite"/></circle>
+          <text x="200" y="334" fill="#F2EFE8" font-family="monospace" font-size="11" letter-spacing="2">SANTIAGO</text>
+        </g>
+        <g>
+          <circle cx="178" cy="190" r="2.5" fill="#F2EFE8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.4s" repeatCount="indefinite"/></circle>
+          <text x="192" y="194" fill="#F2EFE8" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.7">ANTOFAGASTA</text>
+        </g>
+        <g>
+          <circle cx="190" cy="455" r="2.5" fill="#F2EFE8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.6s" repeatCount="indefinite"/></circle>
+          <text x="204" y="459" fill="#F2EFE8" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.7">CONCEPCIÓN</text>
+        </g>
+        <g>
+          <circle cx="200" cy="590" r="2.5" fill="#F2EFE8"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" repeatCount="indefinite"/></circle>
+          <text x="214" y="594" fill="#F2EFE8" font-family="monospace" font-size="10" letter-spacing="2" opacity="0.7">VALDIVIA</text>
+        </g>
+      </svg>
+
+      <div class="stats__legend">
+        <p class="font-mono">GSM en Chile</p>
+        <ul>
+          <li>· Sede central en Santiago</li>
+          <li>· En diálogo con clubes, clínicas e instituciones</li>
+          <li>· Acompañamiento a atletas y estudiantes en cada etapa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats { padding-block: var(--spacing-section); position: relative; overflow: hidden; }
+  .stats__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .stats__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.18; filter: saturate(0.7) contrast(1.05); }
+  .stats__bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,42,30,0.7) 0%, rgba(10,42,30,0.85) 100%);
+  }
+  .stats__container { position: relative; z-index: 1; }
+  .stats__head { display: grid; gap: 0.9rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); max-width: 52rem; }
+  .stats__title { font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+  @media (max-width: 900px) { .stats__grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat { padding: 2rem 1.2rem 1.6rem; border-right: 1px solid var(--color-line); display: grid; gap: 0.4rem; }
+  .stat:last-child { border-right: 0; }
+  @media (max-width: 900px) { .stat:nth-child(2) { border-right: 0; } }
+  .stat__num {
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--color-orange);
+    margin: 0;
+  }
+  .stat__label { font-size: 0.9rem; font-weight: 600; margin: 0; }
+  .stat__sub { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; margin: 0; }
+
+  .stats__map {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+  @media (max-width: 800px) { .stats__map { grid-template-columns: 1fr; } }
+  .stats__map-svg { width: 100%; max-width: 280px; height: auto; }
+  .stats__legend p { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.7; margin: 0 0 0.6rem; }
+  .stats__legend ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; font-size: 1.1rem; }
+</style>

@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '../../lib/site';
+
+const atletas = await getCollection('atletas');
+atletas.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const breadcrumbs = [
+  { name: 'Inicio', url: SITE.url },
+  { name: 'Atletas', url: `${SITE.url}/atletas` },
+];
+
+const listLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: atletas.map((a, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Person',
+      name: a.data.name,
+      url: `${SITE.url}/atletas/${a.id}`,
+      image: a.data.photo,
+      jobTitle: a.data.discipline,
+    },
+  })),
+};
+---
+
+<Base
+  title="Atletas representados por GSM — Galería oficial"
+  description="Atletas profesionales y de proyección representados por GSM en Chile y Latinoamérica. Tenis, atletismo, ciclismo, fútbol, deportes de invierno, básquetbol y más."
+  jsonLd={listLd}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="page-hero bg-ink">
+    <div class="container-x">
+      <p class="eyebrow">Atletas · Galería oficial</p>
+      <h1 class="page-hero__title font-display-narrow" data-split>
+        Quienes <em class="font-serif-italic text-orange">corren con</em> GSM.
+      </h1>
+      <p class="page-hero__lead">
+        Una selección de atletas representados por GSM. Distintas disciplinas, una misma estructura de gestión integral detrás.
+      </p>
+    </div>
+  </section>
+
+  <section class="atl-grid-section bg-ink">
+    <div class="container-x">
+      <div class="atl-grid">
+        {atletas.map((a, i) => (
+          <a class="atl-tile" href={`/atletas/${a.id}`} data-reveal style={`--reveal-delay:${i * 80}ms`}>
+            <div class="atl-tile__img">
+              <img src={a.data.photo} alt={`Retrato de ${a.data.name} (${a.data.discipline}), atleta representado por GSM`} loading="lazy" decoding="async" />
+            </div>
+            <div class="atl-tile__meta">
+              <span class="font-mono atl-tile__num">0{i + 1}</span>
+              <div>
+                <p class="atl-tile__name font-display-narrow">{a.data.name}</p>
+                <p class="atl-tile__sport font-mono">{a.data.discipline}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .page-hero { padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 2rem); }
+    .page-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 26ch; }
+    .page-hero__lead { max-width: 60ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
+
+    .atl-grid-section { padding-bottom: var(--spacing-section); }
+    .atl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    @media (max-width: 900px) { .atl-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .atl-grid { grid-template-columns: 1fr; } }
+    .atl-tile { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--color-court-2); }
+    .atl-tile__img { position: absolute; inset: 0; }
+    .atl-tile__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-out-expo), filter 0.5s; filter: contrast(1.02) saturate(0.95); }
+    .atl-tile:hover .atl-tile__img img { transform: scale(1.06); filter: contrast(1.05) saturate(1.05); }
+    .atl-tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0) 40%, rgba(10,10,10,0.85) 100%); pointer-events: none; }
+    .atl-tile__meta { position: absolute; inset: auto 0 0 0; z-index: 2; padding: 1.1rem 1.2rem; display: flex; align-items: flex-end; gap: 0.8rem; }
+    .atl-tile__num { font-size: 0.7rem; opacity: 0.8; padding: 0.2rem 0.4rem; border: 1px solid var(--color-line); }
+    .atl-tile__name { font-size: clamp(1rem, 1.2vw, 1.3rem); margin: 0; line-height: 1.1; letter-spacing: -0.015em; }
+    .atl-tile__sport { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; margin: 0.3rem 0 0; }
+  </style>
+</Base>

@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/sections/Hero.astro';
+import Manifesto from '../components/sections/Manifesto.astro';
+import Services from '../components/sections/Services.astro';
+import InstitutionsConsulting from '../components/sections/InstitutionsConsulting.astro';
+import Approach from '../components/sections/Approach.astro';
+import IntelligencePrevention from '../components/sections/IntelligencePrevention.astro';
+import AthletesShowcase from '../components/sections/AthletesShowcase.astro';
+import Stats from '../components/sections/Stats.astro';
+import Founders from '../components/sections/Founders.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import BigCTA from '../components/sections/BigCTA.astro';
+
+const homeLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué es GSM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GSM (Game · Set...Match) es una agencia chilena de gestión deportiva integral. Ofrece representación de atletas (Athlete Management), consultoría de alto rendimiento (Sport Performance), programas deportivos para colegios y universidades (Educación) y financiamiento de proyectos deportivos (Funding & Projects).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿A quién representa GSM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GSM representa a atletas de disciplinas olímpicas y profesionales —fútbol, tenis, atletismo, ciclismo, deportes de invierno, básquetbol y más— en Chile y Latinoamérica. También asesora clubes, federaciones, fundaciones, colegios y universidades.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Dónde opera GSM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GSM tiene su sede central en Santiago de Chile y opera en todo Chile con partners regionales en Argentina, Perú, Uruguay y Colombia.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo postular a GSM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Para postular a GSM, escribe a contacto@gsm.cl, completa el formulario de contacto en gsm.cl/contacto o escribe directamente por WhatsApp. El equipo evalúa cada postulación de forma personalizada.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta trabajar con GSM?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GSM trabaja con modelos personalizados según el servicio: consultoría por proyecto para clubes y colegios, representación con éxito para atletas, y planes a medida para programas de Funding. Coordinamos una llamada inicial gratuita para diagnosticar.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿GSM trabaja con clubes y federaciones?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Además de representar atletas, GSM es consultora deportiva para clubes, federaciones, fundaciones y organizaciones. Asesora en diagnóstico organizacional, plan deportivo, alto rendimiento, búsqueda de fondos y patrocinios, y estructura institucional.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué tipo de consultoría entrega GSM a instituciones deportivas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'GSM acompaña a clubes y federaciones en cuatro frentes: diagnóstico organizacional y deportivo, diseño del plan de alto rendimiento, conexión con sponsors y fondos concursables, y ordenamiento de proyectos para hacerlos financiables y medibles. Cada consultoría se diseña a medida del momento institucional.',
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title="Agencia deportiva en Chile · Representación, alto rendimiento y financiamiento"
+  description="GSM (Game · Set...Match) es la agencia chilena de gestión deportiva integral: representación de atletas, alto rendimiento, programas educativos y financiamiento de proyectos en Chile y Latinoamérica."
+  jsonLd={homeLd}
+>
+  <Hero />
+  <Manifesto />
+  <Services />
+  <InstitutionsConsulting />
+  <Approach />
+  <IntelligencePrevention />
+  <AthletesShowcase />
+  <Stats />
+  <Founders />
+  <Testimonials />
+  <BigCTA />
+</Base>

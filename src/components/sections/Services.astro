@@ -1,0 +1,189 @@
+---
+import { SERVICES } from '../../lib/site';
+
+const macros: Array<'G'|'S'|'M'|'G'> = ['G','S','M','G'];
+---
+
+<section class="services bg-ink" id="servicios">
+  <div class="container-x">
+    <header class="services__head">
+      <span class="eyebrow" data-reveal>Servicios · 04 áreas</span>
+      <h2 class="services__title font-display-narrow" data-split>
+        Cuatro capas que sostienen la <em class="font-serif-italic text-orange">carrera deportiva</em>.
+      </h2>
+      <p class="services__lead" data-reveal style="--reveal-delay:200ms">
+        Para deportistas que construyen carrera y para las instituciones que la sostienen: clubes, federaciones, fundaciones, colegios y universidades. GSM es también consultora deportiva: diagnóstico, plan, estructura y financiamiento.
+      </p>
+    </header>
+
+    <div class="services__grid">
+      {SERVICES.map((s, i) => (
+        <a class="service-card" href={`/servicios/${s.slug}`} data-reveal style={`--reveal-delay:${i * 100}ms`}>
+          <div class="service-card__media" aria-hidden="true">
+            <img src={s.image} alt="" loading="lazy" decoding="async" />
+            <span class="service-card__macro">{macros[i]}</span>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__top">
+              <span class="service-card__num font-mono">{s.code}<span>/04</span></span>
+              <span class="service-card__eyebrow font-mono">{s.eyebrow}</span>
+            </div>
+            <h3 class="service-card__title font-display-narrow">{s.title}</h3>
+            <p class="service-card__subtitle">{s.subtitle}</p>
+            <p class="service-card__summary">{s.summary}</p>
+            <span class="service-card__arrow">Conocer más <em>→</em></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding-block: var(--spacing-section);
+    position: relative;
+    overflow: hidden;
+  }
+  .services__head {
+    max-width: 52rem;
+    margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+    display: grid;
+    gap: 0.9rem;
+  }
+  .services__title {
+    font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .services__lead {
+    color: rgba(242,239,232,0.75);
+    max-width: 52ch;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+  }
+  @media (max-width: 1100px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .services__grid { grid-template-columns: 1fr; } }
+
+  .service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-ink);
+    color: var(--color-bone);
+    overflow: hidden;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .service-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-ink-2);
+  }
+  .service-card__media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.05) saturate(0.85) brightness(0.85);
+    transition: transform 0.8s var(--ease-out-expo), filter 0.5s ease;
+  }
+  .service-card:hover .service-card__media img {
+    transform: scale(1.06);
+    filter: contrast(1.05) saturate(0.95) brightness(0.95);
+  }
+  .service-card__media::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.55) 100%);
+    pointer-events: none;
+  }
+  .service-card__macro {
+    position: absolute;
+    bottom: -0.18em; right: 0.06em;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 12rem;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    color: var(--color-bone);
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+  }
+
+  .service-card__body {
+    padding: 1.3rem 1.3rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+    background: var(--color-ink);
+    transition: background 0.5s var(--ease-out-expo);
+  }
+  .service-card:hover .service-card__body { background: var(--color-court); }
+  .service-card:hover .service-card__arrow em { transform: translateX(6px); }
+
+  .service-card__top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .service-card__num {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--color-orange);
+  }
+  .service-card__num span { opacity: 0.45; font-size: 0.7rem; }
+  .service-card__eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .service-card__title {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    line-height: 1.2;
+    margin: 0.2rem 0 0;
+    letter-spacing: -0.015em;
+  }
+  .service-card__subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+    margin: 0;
+  }
+  .service-card__summary {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: rgba(242,239,232,0.78);
+    margin: 0.2rem 0 0;
+  }
+  .service-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+  }
+  .service-card__arrow em {
+    font-style: normal;
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+</style>
