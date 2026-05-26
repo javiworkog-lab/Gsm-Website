@@ -7,28 +7,44 @@ interface Props {
 }
 const { variant = 'white', class: cls = '', size = 56 } = Astro.props;
 
-// Mapeo a archivos PNG y modo de mezcla según el fondo donde irá:
-// - 'white'  → logo blanco (sobre fondos oscuros) → screen apaga el fondo negro del PNG
-// - 'orange' → logo a color (sobre fondos claros) → multiply apaga el fondo blanco del PNG
+// Variantes:
+// - 'white'  → usa logo-white.png (GSM blanco sobre fondo negro opaco). Aplicamos CSS
+//             mask-mode:luminance: el negro del PNG se vuelve 100% transparente y
+//             las letras blancas se rellenan con el color elegido. Resultado: logo
+//             sin caja, sobre cualquier fondo.
+// - 'orange' → usa logo-color.png (GSM naranja + tagline verde sobre blanco opaco).
+//             Aquí queremos conservar los colores, así que NO podemos usar mask.
+//             Usamos mix-blend-mode:multiply, que funciona bien sobre fondos claros.
 const isOnDark = variant === 'white' || variant === 'mono';
-const src = isOnDark ? '/logo-white.png' : '/logo-color.png';
-const blend = isOnDark ? 'screen' : 'multiply';
 
-// Aspect ratios reales:
-// logo-color.png: 866 × 608  (≈ 1.42)
-// logo-white.png: 1040 × 494 (≈ 2.10)
+// Aspect ratios reales de los archivos:
+//   logo-color.png: 866 × 608  (≈ 1.42)
+//   logo-white.png: 1040 × 494 (≈ 2.10)
 const aspect = isOnDark ? 1040 / 494 : 866 / 608;
 const width = Math.round(size * aspect);
+
+// Color del logo (para variante white) — mapeo a tus tokens
+const colorMap = { white: 'var(--color-bone, #F2EFE8)', mono: 'currentColor', orange: '', green: '' };
+const fillColor = colorMap[variant] || 'var(--color-bone, #F2EFE8)';
 ---
 
 <a href="/" aria-label="GSM — Game Set Match — Inicio" class={`gsm-logo inline-flex items-center ${cls}`}>
-  <img
-    src={src}
-    alt="GSM — Game · Set...Match"
-    width={width}
-    height={size}
-    style={`display:block;height:${size}px;width:auto;mix-blend-mode:${blend};`}
-    loading="eager"
-    decoding="async"
-  />
+  {isOnDark ? (
+    <span
+      class="gsm-logo__mask"
+      role="img"
+      aria-label="GSM"
+      style={`width:${width}px;height:${size}px;background-color:${fillColor};-webkit-mask:url(/logo-white.png) center / contain no-repeat;mask:url(/logo-white.png) center / contain no-repeat;-webkit-mask-mode:luminance;mask-mode:luminance;display:block;`}
+    ></span>
+  ) : (
+    <img
+      src="/logo-color.png"
+      alt="GSM — Game · Set...Match"
+      width={width}
+      height={size}
+      style={`display:block;height:${size}px;width:auto;mix-blend-mode:multiply;`}
+      loading="eager"
+      decoding="async"
+    />
+  )}
 </a>
