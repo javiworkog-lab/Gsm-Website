@@ -1,6 +1,11 @@
 ---
 import { waLink, WHATSAPP_MESSAGES } from '../../lib/site';
 
+interface Props {
+  teaser?: boolean;
+}
+const { teaser = false } = Astro.props;
+
 const areas = [
   {
     num: '01',
@@ -45,15 +50,17 @@ const targets = [
       </p>
     </header>
 
-    <div class="inst__areas">
-      {areas.map((a, i) => (
-        <article class="area" data-reveal style={`--reveal-delay:${i * 110}ms`}>
-          <p class="area__num font-display-narrow">{a.num}</p>
-          <h3 class="area__name font-mono">{a.name}</h3>
-          <p class="area__body">{a.body}</p>
-        </article>
-      ))}
-    </div>
+    {!teaser && (
+      <div class="inst__areas">
+        {areas.map((a, i) => (
+          <article class="area" data-reveal style={`--reveal-delay:${i * 110}ms`}>
+            <p class="area__num font-display-narrow">{a.num}</p>
+            <h3 class="area__name font-mono">{a.name}</h3>
+            <p class="area__body">{a.body}</p>
+          </article>
+        ))}
+      </div>
+    )}
 
     <div class="inst__targets">
       <p class="inst__targets-eye font-mono" data-reveal>Trabajamos con</p>
@@ -68,11 +75,18 @@ const targets = [
     </div>
 
     <div class="inst__cta">
-      <a class="btn btn-primary" data-magnetic
-         href={waLink(WHATSAPP_MESSAGES.institucional)} target="_blank" rel="noopener"
-         aria-label="Hablar con GSM por WhatsApp como representante de club, federación o fundación">
-        Conversemos una consultoría →
-      </a>
+      {teaser ? (
+        <a class="btn btn-primary" data-magnetic href="/instituciones"
+           aria-label="Ver la página completa de consultoría para instituciones">
+          Ver consultoría completa →
+        </a>
+      ) : (
+        <a class="btn btn-primary" data-magnetic
+           href={waLink(WHATSAPP_MESSAGES.institucional)} target="_blank" rel="noopener"
+           aria-label="Hablar con GSM por WhatsApp como representante de club, federación o fundación">
+          Conversemos una consultoría →
+        </a>
+      )}
       <p class="inst__foot font-mono">Cada consultoría se diseña a medida del momento institucional.</p>
     </div>
   </div>
