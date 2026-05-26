@@ -39,7 +39,6 @@ export const NAV = [
   { label: 'Servicios', href: '/servicios' },
   { label: 'Plataforma', href: '/plataforma' },
   { label: 'Instituciones', href: '/instituciones' },
-  { label: 'Atletas', href: '/atletas' },
   { label: 'Nosotros', href: '/nosotros' },
   { label: 'Contacto', href: '/contacto' },
 ];
