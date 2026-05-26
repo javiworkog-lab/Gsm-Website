@@ -38,7 +38,7 @@ faq:
   - q: "¿Cuánto dura el proceso?"
     a: "El diagnóstico inicial toma 4 a 6 semanas. La ejecución y acompañamiento es mínimo 12 meses, idealmente plurianual."
   - q: "¿Trabajan con instituciones fuera de Santiago?"
-    a: "Sí. Operamos en todo Chile y tenemos partners regionales en Argentina, Perú, Uruguay y Colombia."
+    a: "Sí. Operamos en todo Chile, desde Arica a Punta Arenas. Vamos a la región o trabajamos en remoto según la fase del proyecto."
   - q: "¿Cómo se mide el éxito?"
     a: "Definimos KPIs deportivos (resultados, ranking, formación), comerciales (sponsors, ingresos) y de gestión (procesos, talento) al inicio del plan."
 metric: "Gestión · Data · Rendimiento · Comercial · Proyectos"
@@ -46,7 +46,7 @@ metric: "Gestión · Data · Rendimiento · Comercial · Proyectos"
 
 ## Una capa estratégica para el deporte institucional
 
-El talento deportivo existe en Chile y Latinoamérica. Lo que muchas veces falla es la estructura para sostenerlo: evaluaciones dispersas y sin seguimiento, programas sin data accionable, poca integración entre salud, rendimiento, gestión y financiamiento, oportunidades comerciales que no se transforman en proyectos.
+El talento deportivo existe en Chile. Lo que muchas veces falla es la estructura para sostenerlo: evaluaciones dispersas y sin seguimiento, programas sin data accionable, poca integración entre salud, rendimiento, gestión y financiamiento, oportunidades comerciales que no se transforman en proyectos.
 
 **Sport Performance** es la línea de GSM que resuelve eso: una capa estratégica externa que ordena el ecosistema deportivo de la institución y lo conecta con su realidad comercial.
 

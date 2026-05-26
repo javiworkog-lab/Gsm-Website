@@ -5,7 +5,7 @@ export const SITE = {
   full: 'GSM — Game · Set...Match',
   tagline: 'Game · Set...Match',
   description:
-    'GSM es la agencia chilena de gestión deportiva integral. Representación de atletas, alto rendimiento, programas educativos y financiamiento de proyectos en Chile y Latinoamérica.',
+    'GSM es la agencia chilena de gestión deportiva integral. Representación de atletas, alto rendimiento, programas educativos y financiamiento de proyectos deportivos en todo Chile.',
   url: 'https://gsm.cl',
   locale: 'es-CL',
   country: 'CL',

@@ -46,7 +46,7 @@ metric: "Diseño · Valorización · Financiamiento · Ejecución · Reporte"
 
 ## De la idea al proyecto financiable
 
-Hay buenas ideas deportivas en Chile y LATAM. Muchas no se convierten en proyectos financiables: falta estructura técnica y comercial, los activos no están valorizados, las marcas no ven retorno ni impacto claro, y la Ley de Donaciones y fondos públicos quedan subutilizados.
+Hay buenas ideas deportivas en Chile. Muchas no se convierten en proyectos financiables: falta estructura técnica y comercial, los activos no están valorizados, las marcas no ven retorno ni impacto claro, y la Ley de Donaciones y fondos públicos quedan subutilizados.
 
 **Funding & Projects** es la línea de GSM que resuelve eso. Tomamos una idea o un proyecto en marcha y lo diseñamos como producto financiable: lo valorizamos para distintos perfiles de aportantes (marcas, fondos públicos, fundaciones, donantes individuales) y lo conectamos con nuestra red activa.
 
@@ -75,4 +75,4 @@ Funciona para clubes, fundaciones, colegios y federaciones. La metodología es l
 
 ## Por qué GSM
 
-Conocemos a las personas y los procesos de quienes financian deporte en Chile y LATAM. Sabemos qué buscan las marcas, cómo evalúan los fondos públicos y qué reportes esperan los donantes. Eso ahorra meses y triplica las probabilidades de éxito.
+Conocemos a las personas y los procesos de quienes financian deporte en Chile. Sabemos qué buscan las marcas, cómo evalúan los fondos públicos y qué reportes esperan los donantes. Eso ahorra meses y triplica las probabilidades de éxito.

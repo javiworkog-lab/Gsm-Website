@@ -39,8 +39,8 @@ faq:
     a: "Sí. Tenemos experiencia con atletas desde categorías juveniles. Involucramos a la familia y el coach en el diseño del plan."
   - q: "¿Qué deportes representan?"
     a: "Tenis, atletismo, ciclismo, fútbol, deportes de invierno, básquetbol, hockey y otros. Lo que importa es la proyección, no la disciplina."
-  - q: "¿Trabajan con atletas en Argentina, Perú, Uruguay, Colombia?"
-    a: "Sí. Tenemos partners regionales y red activa en LATAM. La sede está en Santiago pero operamos en toda la región."
+  - q: "¿Trabajan con atletas fuera de Santiago?"
+    a: "Sí. La sede está en Santiago, pero representamos atletas en todo Chile. Acompañamos viajes, entrenamientos y competencias dentro y fuera del país según el calendario del atleta."
 metric: "Carrera · Rendimiento · Marca · Sponsors · Oportunidades"
 ---
 
