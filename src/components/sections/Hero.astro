@@ -141,7 +141,21 @@ import { waLink, WHATSAPP_MESSAGES } from '../../lib/site';
     color: rgba(242, 239, 232, 0.78);
     margin: 0 0 1.8rem;
   }
-  .hero__cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .hero__cta {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero__cta .btn {
+    min-width: 13rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero__cta .btn > * { text-align: center; }
+  @media (max-width: 480px) {
+    .hero__cta .btn { min-width: 100%; }
+  }
   .hero__scroll {
     position: absolute;
     right: var(--spacing-gutter);
