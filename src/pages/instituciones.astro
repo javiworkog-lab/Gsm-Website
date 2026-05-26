@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import InstitutionsConsulting from '../components/sections/InstitutionsConsulting.astro';
+import BigCTA from '../components/sections/BigCTA.astro';
+import { SITE } from '../lib/site';
+
+const breadcrumbs = [
+  { name: 'Inicio', url: SITE.url },
+  { name: 'Instituciones', url: `${SITE.url}/instituciones` },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Consultoría deportiva para instituciones',
+  provider: {
+    '@type': 'Organization',
+    name: 'GSM — Game · Set...Match',
+    url: SITE.url,
+  },
+  areaServed: ['Chile', 'Argentina', 'Perú', 'Uruguay', 'Colombia'],
+  description:
+    'GSM acompaña a clubes, federaciones y fundaciones en diagnóstico organizacional, plan deportivo, búsqueda de fondos y patrocinios, y estructura institucional.',
+};
+---
+
+<Base
+  title="Instituciones — Consultoría para clubes, federaciones y fundaciones"
+  description="GSM trabaja con clubes, federaciones y fundaciones para ordenar el proyecto deportivo, profesionalizar la gestión y financiar lo que vienen construyendo."
+  breadcrumbs={breadcrumbs}
+  jsonLd={jsonLd}
+>
+  <section class="page-hero bg-ink">
+    <div class="container-x">
+      <p class="eyebrow">Instituciones · GSM</p>
+      <h1 class="page-hero__title font-display-narrow" data-split>
+        Consultoría para <em class="font-serif-italic text-orange">clubes, federaciones y fundaciones</em>.
+      </h1>
+      <p class="page-hero__lead">
+        Trabajamos con instituciones deportivas que quieren ordenar su proyecto, profesionalizar su gestión y financiar lo que vienen construyendo. Diagnóstico, plan, ejecución y métricas.
+      </p>
+    </div>
+  </section>
+
+  <InstitutionsConsulting />
+
+  <BigCTA />
+
+  <style>
+    .page-hero { padding-block: calc(var(--spacing-section) + 3.5rem) calc(var(--spacing-section) - 1rem); }
+    .page-hero__title { font-size: clamp(1.7rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -0.02em; margin: 0.8rem 0 1.2rem; max-width: 28ch; }
+    .page-hero__lead { max-width: 62ch; color: rgba(242,239,232,0.78); font-size: 0.95rem; line-height: 1.6; }
+  </style>
+</Base>
