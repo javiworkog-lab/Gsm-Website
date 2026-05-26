@@ -5,35 +5,30 @@ const steps = [
     name: 'Diagnóstico',
     title: 'Vemos antes de hablar.',
     body: 'Auditamos talento, contexto, recursos y oportunidades. Un mapa real, sin humo, antes de prometer nada.',
-    metric: '14 dimensiones',
   },
   {
     num: '02',
     name: 'Estrategia',
     title: 'Diseñamos la ruta.',
     body: 'Plan deportivo con objetivos medibles, presupuesto, calendarios y partners. Sin promesas vacías ni atajos.',
-    metric: '6 horizontes',
   },
   {
     num: '03',
     name: 'Implementación',
     title: 'Activamos el equipo.',
     body: 'Convocamos profesionales, sponsors y aliados. GSM articula. El atleta entrena. El club ejecuta.',
-    metric: '40+ partners',
   },
   {
     num: '04',
     name: 'Seguimiento',
     title: 'Medimos cada paso.',
     body: 'Indicadores deportivos, comerciales y educacionales. Reportería transparente, conversaciones honestas.',
-    metric: 'KPIs vivos',
   },
   {
     num: '05',
     name: 'Resultados',
     title: 'Construimos legado.',
     body: 'Talento que rinde, carreras que duran, instituciones que escalan, proyectos que se financian.',
-    metric: '+15 años',
   },
 ];
 ---
@@ -54,9 +49,6 @@ const steps = [
           <h3 class="approach__step-name font-mono">{step.name}</h3>
           <p class="approach__step-title font-display-narrow">{step.title}</p>
           <p class="approach__body">{step.body}</p>
-          <div class="approach__metric">
-            <span class="font-mono">{step.metric}</span>
-          </div>
         </article>
       ))}
     </div>
@@ -136,15 +128,6 @@ const steps = [
     line-height: 1.5;
     opacity: 0.85;
     margin: 0;
-  }
-  .approach__metric {
-    margin-top: auto;
-    align-self: flex-end;
-    padding-top: 1.5rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.7;
   }
   @media (max-width: 800px) {
     .approach__inner { height: auto; }
