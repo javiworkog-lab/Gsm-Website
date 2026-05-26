@@ -50,7 +50,7 @@ export const SERVICES = [
     title: 'Sport Performance',
     subtitle: 'Clubes · Federaciones · Organizaciones',
     summary:
-      'Capa estratégica que integra gestión institucional, alto rendimiento, tecnología y desarrollo comercial. Diagnóstico, plan deportivo y estructura para sostener talento en el tiempo.',
+      'Capa estratégica que integra gestión, rendimiento, data, salud y desarrollo comercial. Ordenamos el ecosistema deportivo de la institución para sostener talento en el tiempo.',
     eyebrow: 'Para instituciones',
     image: '/images/action/rugby-scrum.jpg',
   },
@@ -60,7 +60,7 @@ export const SERVICES = [
     title: 'Athlete Management',
     subtitle: 'Deportistas · Familias',
     summary:
-      'Convertimos el talento en carrera sostenible: roadmap deportivo, marca personal, búsqueda de patrocinadores, visibilidad mediática y representación integral.',
+      'Convertimos talento individual en una carrera deportiva sostenible, visible y financiable. Roadmap, rendimiento, marca personal, sponsors y oportunidades reales.',
     eyebrow: 'Para deportistas',
     image: '/images/action/tennis-serve.jpg',
   },
@@ -70,7 +70,7 @@ export const SERVICES = [
     title: 'GSM Educación',
     subtitle: 'Colegios · Universidades',
     summary:
-      'Ayudamos a colegios y universidades a ordenar, profesionalizar y medir su programa deportivo. Formación por etapa, detección de talento y hábitos saludables.',
+      'Deporte escolar con estructura: programas formativos, hábitos saludables, detección de talento y experiencias para alumnos, apoderados y marcas.',
     eyebrow: 'Para instituciones educativas',
     image: '/images/action/hockey-grass.jpg',
   },
@@ -80,7 +80,7 @@ export const SERVICES = [
     title: 'Funding & Projects',
     subtitle: 'Clubes · Fundaciones · Federaciones',
     summary:
-      'Diseñamos, ordenamos y valorizamos proyectos deportivos para conectarlos con marcas, fondos y donantes. Convertimos ideas en proyectos financiables y medibles.',
+      'Convertimos ideas deportivas en proyectos financiables, medibles y atractivos para marcas. Diseño, valorización, financiamiento, ejecución y reporte de impacto.',
     eyebrow: 'Para proyectos',
     image: '/images/detail/stadium-night.jpg',
   },

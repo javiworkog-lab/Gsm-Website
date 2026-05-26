@@ -3,69 +3,76 @@ title: "Funding & Projects"
 slug: "funding-projects"
 code: "04"
 eyebrow: "Para proyectos"
-subtitle: "Clubes · Fundaciones · Federaciones · Proyectos"
-summary: "Diseñamos, ordenamos y valorizamos proyectos deportivos para conectarlos con marcas, fondos, fundaciones y donantes. Convertimos ideas en proyectos financiables, medibles y con impacto real."
+subtitle: "Clubes · Fundaciones · Federaciones · Colegios"
+summary: "Convertimos ideas deportivas en proyectos financiables, medibles y atractivos para marcas. Diseñamos, ordenamos, valorizamos y conectamos proyectos con marcas, fondos y donantes."
 audience:
   - "Clubes con necesidad de infraestructura o financiamiento operativo"
-  - "Fundaciones deportivas y sociales"
-  - "Federaciones que buscan fondos para selecciones o programas"
-  - "Proyectos deportivos comunitarios y municipales"
+  - "Fundaciones deportivas y sociales con foco de impacto"
+  - "Federaciones que financian selecciones, formación o equipamiento"
+  - "Colegios y proyectos comunitarios con foco deportivo"
 deliverables:
-  - "Diseño y estructuración del proyecto"
-  - "Modelo financiero y proyecciones"
-  - "Carpeta comercial y presentación ejecutiva"
-  - "Búsqueda de marcas, fondos y donantes"
-  - "Postulación a fondos públicos y concursables"
-  - "Negociación, contratos y cierre"
-  - "Reportería al donante y al equipo gestor"
+  - "Diseño de proyecto: concepto, objetivos, impacto y narrativa"
+  - "Carpeta comercial y presupuesto base"
+  - "Mapa de beneficios para marcas y donantes"
+  - "Indicadores de impacto y plan de medición"
+  - "Prospección de marcas y gestión de Ley de Donaciones"
+  - "Negociación de sponsors y cierre de acuerdos"
+  - "Activaciones asociadas y producción de experiencias"
+  - "Reportabilidad final al financista"
 process:
   - step: "01"
-    title: "Diseño"
-    body: "Estructuramos el proyecto: objetivos, beneficiarios, métricas de impacto, equipo, presupuesto y plan de uso de fondos."
+    title: "Idea"
+    body: "Problema, objetivo, beneficiarios y relato. Ordenamos el por qué del proyecto antes de hablar de plata."
   - step: "02"
-    title: "Valorización"
-    body: "Construimos la propuesta comercial: para marcas, para fondos públicos, para fundaciones, para donantes individuales."
+    title: "Proyecto"
+    body: "Presupuesto, actividades, retorno e impacto. Estructuramos la propuesta para que sea evaluable y financiable."
   - step: "03"
-    title: "Conexión"
-    body: "Activamos nuestra red de partners. Postulamos a fondos concursables (FONDEPORTE, gobiernos regionales, organismos internacionales)."
+    title: "Venta"
+    body: "Marcas, donantes, fondos y propuesta comercial. Activamos nuestra red de aportantes según el perfil del proyecto."
   - step: "04"
-    title: "Cierre y reportería"
-    body: "Negociamos términos, acompañamos el cierre y entregamos reportería periódica al financista. Transparencia total."
+    title: "Cierre"
+    body: "Contrato, ejecución, reporte y fidelización. Acompañamos la entrega y reportería para que el financista vuelva."
 faq:
   - q: "¿Qué tipo de proyectos financian?"
     a: "Desde infraestructura deportiva, programas formativos, selecciones que viajan a competir, becas para atletas, hasta proyectos sociales con foco deportivo."
   - q: "¿Cobran por buscar el financiamiento?"
-    a: "Modelo mixto: fee fijo por estructuración + éxito sobre fondos levantados. Todo por contrato, sin sorpresas."
-  - q: "¿Postulan a fondos públicos chilenos?"
-    a: "Sí. Postulamos a FONDEPORTE, gobiernos regionales, programas del IND, fondos municipales y fondos privados (fundaciones empresariales)."
+    a: "Combinamos fee de estructuración, fee mensual de gestión y success fee sobre montos levantados. Todo por contrato, sin sorpresas."
+  - q: "¿Postulan a fondos públicos chilenos y a Ley de Donaciones?"
+    a: "Sí. Trabajamos con FONDEPORTE, gobiernos regionales, programas del IND, fondos municipales, Ley de Donaciones y fundaciones empresariales."
   - q: "¿Trabajan con proyectos pequeños?"
     a: "Trabajamos según fit y potencial de impacto. No todo proyecto necesita un fee grande: a veces es más útil una sesión de mentoría intensiva."
-metric: "38 sponsors · fondos públicos y privados"
+metric: "Diseño · Valorización · Financiamiento · Ejecución · Reporte"
 ---
 
-## Convertir ideas en proyectos financiables
+## De la idea al proyecto financiable
 
-Hay miles de proyectos deportivos en Chile esperando recursos. La mayoría nunca los consigue, no por falta de mérito, sino por falta de método: presentaciones flojas, sin modelo financiero, sin medición de impacto, sin red de contactos. **GSM Funding & Projects** resuelve exactamente eso.
+Hay buenas ideas deportivas en Chile y LATAM. Muchas no se convierten en proyectos financiables: falta estructura técnica y comercial, los activos no están valorizados, las marcas no ven retorno ni impacto claro, y la Ley de Donaciones y fondos públicos quedan subutilizados.
 
-## Cómo trabajamos
+**Funding & Projects** es la línea de GSM que resuelve eso. Tomamos una idea o un proyecto en marcha y lo diseñamos como producto financiable: lo valorizamos para distintos perfiles de aportantes (marcas, fondos públicos, fundaciones, donantes individuales) y lo conectamos con nuestra red activa.
 
-Tomamos una idea o un proyecto en marcha y le aplicamos el método GSM: lo diseñamos como producto financiable, lo valorizamos para distintos perfiles de aportantes (marcas, fondos públicos, fundaciones, donantes individuales) y lo conectamos con nuestra red activa.
+## Cinco frentes que integramos
 
-## Para quién
+- **Diseño**: concepto, objetivos, impacto y narrativa.
+- **Valorización**: activos comerciales y retornos para marcas.
+- **Financiamiento**: sponsors, donaciones, fondos y alianzas.
+- **Ejecución**: activaciones, experiencias y seguimiento.
+- **Reporte**: medición de impacto y accountability con el financista.
 
-- Clubes con necesidades de infraestructura o financiamiento operativo.
-- Fundaciones deportivas y sociales con vocación de impacto.
-- Federaciones que necesitan financiar selecciones, formación o equipamiento.
-- Proyectos comunitarios y municipales con foco deportivo.
+## Servicios modulares
 
-## Tipos de financiamiento que activamos
+**Estructura**: diseño de proyecto, carpeta comercial, presupuesto base, mapa de beneficios, indicadores de impacto.
 
-- Patrocinadores corporativos (marcas, retail, banca, telecomunicaciones).
-- Fondos públicos chilenos: FONDEPORTE, gobiernos regionales, IND, municipios.
-- Fundaciones empresariales y familiares.
-- Cooperación internacional y organismos multilaterales.
-- Donantes individuales con vocación deportiva.
+**Gestión**: prospección de marcas, Ley de Donaciones, negociación de sponsors, activaciones asociadas, reportabilidad final.
+
+Funciona para clubes, fundaciones, colegios y federaciones. La metodología es la misma; el ángulo comercial cambia según el aportante objetivo.
+
+## Modelo comercial
+
+- **Fee de estructuración**: pago por diseñar proyecto, carpeta y estrategia comercial.
+- **Success fee**: porcentaje sobre montos financiados, donaciones o patrocinios.
+- **Fee mensual de gestión**: acompañamiento comercial durante el periodo de captación.
+- **Producción y activaciones**: ingresos adicionales por eventos, lanzamientos y experiencias asociadas.
 
 ## Por qué GSM
 
-Después de 12 años, conocemos a las personas y los procesos de quienes financian deporte en Chile y LATAM. Sabemos qué buscan, cómo evalúan y qué reportes esperan. Eso ahorra meses y triplica las probabilidades de éxito.
+Conocemos a las personas y los procesos de quienes financian deporte en Chile y LATAM. Sabemos qué buscan las marcas, cómo evalúan los fondos públicos y qué reportes esperan los donantes. Eso ahorra meses y triplica las probabilidades de éxito.

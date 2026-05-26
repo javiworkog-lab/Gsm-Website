@@ -4,33 +4,34 @@ slug: "educacion"
 code: "03"
 eyebrow: "Para instituciones educativas"
 subtitle: "Colegios · Universidades · Programas formativos"
-summary: "Ayudamos a colegios e instituciones educativas a ordenar, profesionalizar y medir su programa deportivo. Formación por etapa escolar, detección de talento, hábitos saludables y vínculo con el sistema deportivo nacional."
+summary: "Deporte escolar con estructura: programas formativos, hábitos saludables, detección de talento y experiencias para alumnos, apoderados y marcas. Pasamos del deporte como actividad al deporte como programa medible."
 audience:
   - "Colegios particulares y subvencionados"
   - "Universidades con vocación deportiva"
-  - "Fundaciones educativas"
-  - "Programas formativos municipales"
+  - "Fundaciones educativas y proyectos formativos"
+  - "Programas deportivos municipales y comunitarios"
 deliverables:
-  - "Diagnóstico del programa deportivo escolar"
-  - "Plan curricular deportivo por etapa"
-  - "Sistema de detección de talento interno"
-  - "Capacitación de profesores y entrenadores"
-  - "Programa de hábitos saludables y bienestar"
-  - "Vínculo con clubes, federaciones y selecciones"
-  - "Reportería al equipo directivo y a apoderados"
+  - "Diagnóstico inicial del programa deportivo y la comunidad"
+  - "Plan anual deportivo por etapa escolar"
+  - "Escuelas deportivas, torneos internos y clínicas con referentes"
+  - "Talleres para alumnos y apoderados"
+  - "Charlas de hábitos, bienestar y liderazgo"
+  - "Evaluaciones físicas y medición de impacto"
+  - "Sistema de detección y seguimiento de talento"
+  - "Programa de sponsors y levantamiento de recursos"
 process:
   - step: "01"
-    title: "Auditoría"
-    body: "Revisamos infraestructura, personas, programa, cultura y resultados. Hablamos con dirección, profesores, alumnos y apoderados."
+    title: "Diagnóstico"
+    body: "Revisión de oferta deportiva, infraestructura, equipo docente y comunidad escolar. Hablamos con dirección, profesores, alumnos y apoderados."
   - step: "02"
-    title: "Diseño curricular"
-    body: "Diseñamos el programa deportivo por etapa: prebásica, básica, media. Objetivos, metodologías, evaluación y formación de profesores."
+    title: "Diseño"
+    body: "Plan formativo por etapa, calendario anual y módulos de experiencia. Definimos qué se mide, cómo y para quién se reporta."
   - step: "03"
-    title: "Implementación"
-    body: "Capacitamos al equipo docente y deportivo. Acompañamos el primer año de operación con visitas, mentorías y reportería."
+    title: "Ejecución"
+    body: "Activación de programas, torneos, talleres, mediciones y eventos. Capacitación al equipo deportivo del colegio."
   - step: "04"
-    title: "Medición"
-    body: "Evaluamos participación, salud, rendimiento académico vinculado y detección de talento. Reportes semestrales a directivos."
+    title: "Impacto"
+    body: "Reporte con participación, progreso deportivo, indicadores de bienestar y oportunidades de talento detectado."
 faq:
   - q: "¿Trabajan solo con colegios privados?"
     a: "No. Hemos colaborado con colegios particulares, subvencionados, municipales y fundaciones. Adaptamos profundidad y costos al contexto."
@@ -40,32 +41,38 @@ faq:
     a: "Sí. Capacitamos al equipo docente en metodologías actualizadas, detección de talento y trabajo con familias."
   - q: "¿Detectan atletas que pasan a GSM Athlete Management?"
     a: "Cuando aparece un talento real, ofrecemos al alumno y su familia el puente hacia el sistema deportivo nacional. Sin obligación: el bienestar del menor está primero."
-metric: "Colegios · Universidades · LATAM"
+metric: "Formación · Bienestar · Talento · Comunidad · Impacto"
 ---
 
-## El deporte escolar también necesita método
+## Del deporte como actividad al deporte como programa formativo
 
-El deporte es una de las herramientas más poderosas de desarrollo humano. Desarrolla disciplina, resiliencia, liderazgo y salud. Pero la mayoría de los colegios chilenos lo trata como un anexo: dos horas a la semana, sin plan, sin medición, sin proyección. **GSM Educación** profesionaliza el deporte escolar como lo que es: una herramienta formativa de primer orden.
+Muchos colegios tienen deporte, pero no siempre tienen un programa deportivo medible. Actividades aisladas sin continuidad ni indicadores. Talento escolar que aparece, pero no se acompaña. Poco vínculo entre deporte, bienestar y comunidad educativa. Falta una propuesta deportiva que también genere valor institucional.
 
-## Lo que diseñamos
+**GSM Educación** ayuda a colegios e instituciones educativas a ordenar, profesionalizar y medir su desarrollo deportivo. No reemplazamos al colegio: lo potenciamos.
 
-GSM Educación construye con cada colegio un programa deportivo serio: currículum por etapa, formación de profesores, sistema de detección de talento, vínculo con clubes y federaciones, y reportería periódica a directivos y apoderados. No reemplazamos al colegio: lo potenciamos.
+## Cinco frentes que trabajamos
 
-## Para quién
+- **Formación**: programas deportivos por etapa escolar.
+- **Bienestar**: hábitos saludables y salud preventiva.
+- **Talento**: detección y seguimiento de alumnos con proyección.
+- **Comunidad**: experiencias para alumnos, apoderados y marcas.
+- **Impacto**: indicadores de participación, adherencia y progreso.
 
-- Colegios particulares y subvencionados que quieren un programa deportivo distintivo.
-- Universidades con vocación de formar deportistas universitarios y profesionales.
-- Fundaciones educativas con foco en desarrollo integral.
-- Programas formativos municipales o comunitarios.
+## Servicios modulares
 
-## Beneficios concretos
+**Programas**: escuelas deportivas, torneos internos, clínicas con referentes, talleres para alumnos y apoderados, charlas de hábitos y liderazgo.
 
-- Programa deportivo con objetivos claros por etapa.
-- Profesores capacitados y motivados.
-- Alumnos más sanos, disciplinados y comprometidos.
-- Detección temprana de talento, con paso ordenado al sistema deportivo nacional.
-- Reportería transparente a dirección y apoderados.
+**Gestión**: diagnóstico inicial, plan anual deportivo, evaluaciones físicas, medición de impacto, sponsors y financiamiento.
+
+El colegio puede contratar el programa completo o módulos específicos según el momento institucional.
+
+## Modelo comercial
+
+- **Fee mensual de programa**: acompañamiento anual para ordenar y ejecutar el plan deportivo.
+- **Proyecto por evento o clínica**: activaciones puntuales (semana deportiva, aniversario, jornadas de comunidad).
+- **Programa financiado por marcas**: vincular empresas con impacto escolar y visibilidad responsable.
+- **Levantamiento de recursos**: diseño de proyectos deportivos postulables o patrocinables.
 
 ## Por qué GSM
 
-GSM conoce el sistema deportivo chileno desde adentro. Sabemos cómo se conecta el deporte escolar con clubes, federaciones y selecciones. Aportamos esa visión al colegio: no enseñamos un deporte, instalamos un sistema.
+GSM conoce el sistema deportivo chileno desde adentro. Sabemos cómo se conecta el deporte escolar con clubes, federaciones y selecciones. No enseñamos un deporte: instalamos un sistema deportivo que el colegio puede mostrar, medir y sostener en el tiempo.
