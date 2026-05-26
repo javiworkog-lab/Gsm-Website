@@ -7,7 +7,7 @@ const path = Astro.url.pathname;
 
 <header data-header class="gsm-header" aria-label="Navegación principal">
   <div class="gsm-header__inner container-x">
-    <Logo variant="white" withTagline={false} size={112} />
+    <Logo variant="white" withTagline={false} size={128} />
 
     <nav class="gsm-header__nav" aria-label="Enlaces principales">
       {NAV.map((item) => (
@@ -111,13 +111,9 @@ const path = Astro.url.pathname;
     .gsm-header__cta .btn { display: none; }
     .gsm-burger { display: inline-flex; }
   }
-  /* Mobile: shrink the logo and pull it to the very left edge */
+  /* Mobile: pull header content flush left, keep logo size */
   @media (max-width: 700px) {
     .gsm-header__inner { padding-inline: 1rem; }
-    .gsm-header .gsm-logo img { height: 56px !important; }
-  }
-  @media (max-width: 420px) {
-    .gsm-header .gsm-logo img { height: 48px !important; }
   }
 
   /* Menu overlay */
