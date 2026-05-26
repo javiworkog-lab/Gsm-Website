@@ -114,6 +114,10 @@ const path = Astro.url.pathname;
   /* Mobile: keep header padding aligned with the page content gutter */
   @media (max-width: 700px) {
     .gsm-header__inner { padding-inline: var(--spacing-gutter); }
+    .gsm-header .gsm-logo img { height: 88px !important; }
+  }
+  @media (max-width: 420px) {
+    .gsm-header .gsm-logo img { height: 72px !important; }
   }
 
   /* Menu overlay */
