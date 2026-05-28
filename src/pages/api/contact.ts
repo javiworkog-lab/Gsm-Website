@@ -45,9 +45,9 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const { topic, name, email, phone = '', org = '', message, terms } = data;
+  const { topic, name, email, phone = '', org = '', message } = data;
 
-  if (!topic || !name || !email || !message || !terms) {
+  if (!topic || !name || !email || !message) {
     return new Response(JSON.stringify({ ok: false, error: 'missing_fields' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
