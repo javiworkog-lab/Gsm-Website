@@ -40,6 +40,16 @@ const founders = [
     baseTranslateY: '0%',
     mediaBg: '#0a0a0a',
   },
+  {
+    name: 'Javiera Ortiz Gamonal',
+    role: 'Software Developer · Producto',
+    img: '/images/team/javiera-ortiz-gamonal.jpg',
+    bio: 'Ingeniera Comercial (MBA, Tusculum University) con experiencia en SaaS, automatización CRM y producto digital. Lidera el desarrollo de la plataforma GSM: PAI, Dashboard Espejo Inteligente y el ecosistema completo.',
+    objectPos: 'center 22%',
+    baseScale: 1,
+    baseTranslateY: '0%',
+    mediaBg: '#1a1a1a',
+  },
 ];
 ---
 
@@ -102,13 +112,14 @@ const founders = [
 
   .founders__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(0.9rem, 1.6vw, 1.4rem);
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(0.8rem, 1.4vw, 1.2rem);
     max-width: 100%;
     margin-inline: auto;
   }
-  @media (max-width: 1100px) { .founders__grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .founders__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 1280px) { .founders__grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 800px)  { .founders__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px)  { .founders__grid { grid-template-columns: 1fr; } }
 
   .founder {
     display: grid;
