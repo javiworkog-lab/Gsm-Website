@@ -6,7 +6,7 @@ export const SITE = {
   tagline: 'Game · Set...Match',
   description:
     'GSM es la agencia chilena de gestión deportiva integral. Representación de atletas, alto rendimiento, programas educativos y financiamiento de proyectos deportivos en todo Chile.',
-  url: 'https://gsm.cl',
+  url: 'https://gsmgroup.cl',
   locale: 'es-CL',
   country: 'CL',
   region: 'Santiago',
@@ -18,7 +18,7 @@ export const SITE = {
     addressCountry: 'CL',
   },
   contact: {
-    email: 'contacto@gsm.cl',
+    email: 'contacto@gsmgroup.cl',
     phone: '+56 9 0000 0000', // placeholder reemplazable
     whatsapp: '56900000000',
     hours: 'Lun a Vie · 09:00 – 19:00 CLT',

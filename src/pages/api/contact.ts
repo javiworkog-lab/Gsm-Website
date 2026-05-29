@@ -80,7 +80,7 @@ export const POST: APIRoute = async ({ request }) => {
   ].join('\n');
 
   const html = `
-    <h2 style="font-family:system-ui,sans-serif">Nuevo contacto desde gsm.cl</h2>
+    <h2 style="font-family:system-ui,sans-serif">Nuevo contacto desde gsmgroup.cl</h2>
     <p><strong>Tipo:</strong> ${escapeHtml(topicLabel)}</p>
     <p><strong>Nombre:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
@@ -91,8 +91,8 @@ export const POST: APIRoute = async ({ request }) => {
   `;
 
   const apiKey = import.meta.env.RESEND_API_KEY;
-  const toEmail = import.meta.env.CONTACT_TO_EMAIL ?? 'contacto@gsm.cl';
-  const fromEmail = import.meta.env.CONTACT_FROM_EMAIL ?? 'GSM Web <web@gsm.cl>';
+  const toEmail = import.meta.env.CONTACT_TO_EMAIL ?? 'contacto@gsmgroup.cl';
+  const fromEmail = import.meta.env.CONTACT_FROM_EMAIL ?? 'GSM Web <web@gsmgroup.cl>';
 
   if (!apiKey) {
     // Sin API key configurada: aceptamos el envío y dejamos rastro en logs del servidor.
