@@ -19,8 +19,8 @@ export const SITE = {
   },
   contact: {
     email: 'contacto@gsmgroup.cl',
-    phone: '+56 9 0000 0000', // placeholder reemplazable
-    whatsapp: '56900000000',
+    phone: '+56 9 8151 9142',
+    whatsapp: '56981519142',
     hours: 'Lun a Vie · 09:00 – 19:00 CLT',
   },
   social: {
