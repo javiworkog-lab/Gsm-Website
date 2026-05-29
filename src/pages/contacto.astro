@@ -84,7 +84,9 @@ const faqLd = {
           </div>
           <label class="form__check">
             <input type="checkbox" name="terms" required />
-            <span>Autorizo a GSM a contactarme y a tratar mis datos personales conforme a la <a href="https://www.bcn.cl/leychile/navegar?idNorma=141599" target="_blank" rel="noopener">Ley 19.628</a> de protección de la vida privada.</span>
+            <span>
+              Autorizo a GSM a contactarme y a tratar mis datos personales conforme a la <a href="https://www.bcn.cl/leychile/navegar?idNorma=141599" target="_blank" rel="noopener">Ley 19.628</a> de protección de la vida privada. <span class="form__check-required" aria-hidden="true">*</span>
+            </span>
           </label>
           <button class="btn btn-primary" data-magnetic type="submit">Enviar mensaje</button>
           <p class="form__msg" data-form-msg aria-live="polite"></p>
@@ -146,10 +148,34 @@ const faqLd = {
       letter-spacing: 0;
     }
     .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--color-orange); }
-    .form__check { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; text-transform: none; letter-spacing: 0; line-height: 1.5; color: rgba(10,10,10,0.72); }
-    .form__check input { width: auto; margin-top: 0.18rem; flex-shrink: 0; }
-    .form__check a { text-decoration: underline; text-underline-offset: 2px; }
-    .form__check a:hover { color: var(--color-orange); }
+    /* Higher specificity so it overrides the generic .form label styles */
+    .form label.form__check {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      text-transform: none;
+      letter-spacing: 0;
+      line-height: 1.5;
+      color: rgba(10,10,10,0.78);
+    }
+    .form label.form__check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 0.18rem 0 0;
+      flex-shrink: 0;
+      accent-color: var(--color-orange);
+      cursor: pointer;
+    }
+    .form label.form__check a {
+      color: var(--color-ink);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .form label.form__check a:hover { color: var(--color-orange); }
+    .form__check-required { color: var(--color-orange); font-weight: 700; }
     .form button { justify-self: start; }
     .form__msg { min-height: 1.5rem; font-family: var(--font-mono); font-size: 0.78rem; }
     .form__msg.is-ok { color: var(--color-court); }
