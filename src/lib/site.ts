@@ -24,7 +24,7 @@ export const SITE = {
     hours: 'Lun a Vie · 09:00 – 19:00 CLT',
   },
   social: {
-    instagram: 'https://instagram.com/gsm.gamesetmatch',
+    instagram: 'https://www.instagram.com/gsm_gestion',
     linkedin: 'https://linkedin.com/company/gsm-gamesetmatch',
     youtube: 'https://youtube.com/@gsm',
   },
